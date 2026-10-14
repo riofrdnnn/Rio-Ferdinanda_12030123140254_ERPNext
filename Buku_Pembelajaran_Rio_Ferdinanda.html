@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Buku Panduan Praktikum ERPNext & Frappe Framework - Rio Ferdinanda</title>
+<style>
+@page {
+    size: A4 portrait;
+    margin: 2.54cm 2.54cm 2.54cm 2.54cm;
+    mso-header-margin: 36.0pt;
+    mso-footer-margin: 36.0pt;
+    mso-paper-source: 0;
+}
+body {
+    font-family: 'Calibri', 'Times New Roman', Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.45;
+    color: #1a1a1a;
+    text-align: justify;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+.cover-page {
+    text-align: center;
+    page-break-after: always;
+    padding-top: 50pt;
+    padding-bottom: 50pt;
+}
+.cover-institution {
+    font-size: 13pt;
+    font-weight: bold;
+    color: #0b3c5d;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 40pt;
+}
+.cover-title {
+    font-size: 20pt;
+    font-weight: bold;
+    color: #0b3c5d;
+    line-height: 1.25;
+    margin-bottom: 12pt;
+    text-transform: uppercase;
+}
+.cover-subtitle {
+    font-size: 12.5pt;
+    font-weight: normal;
+    color: #328cc1;
+    margin-bottom: 30pt;
+    line-height: 1.4;
+}
+.cover-divider {
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(to right, #0b3c5d, #328cc1, #0b3c5d);
+    margin: 0 auto 35pt auto;
+    border: none;
+}
+.cover-meta {
+    font-size: 11pt;
+    color: #333333;
+    line-height: 1.6;
+    margin-top: 40pt;
+    margin-bottom: 50pt;
+}
+.cover-author {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #1d2731;
+}
+.cover-footer {
+    font-size: 11pt;
+    font-weight: bold;
+    color: #0b3c5d;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+h1 {
+    font-size: 15pt;
+    font-weight: bold;
+    text-align: center;
+    page-break-before: always;
+    margin-top: 24pt;
+    margin-bottom: 14pt;
+    color: #0b3c5d;
+    text-transform: uppercase;
+    border-bottom: 2pt solid #0b3c5d;
+    padding-bottom: 6pt;
+}
+h2 {
+    font-size: 12.5pt;
+    font-weight: bold;
+    margin-top: 16pt;
+    margin-bottom: 6pt;
+    color: #1d2731;
+    border-left: 4pt solid #328cc1;
+    padding-left: 8pt;
+}
+h3 {
+    font-size: 11pt;
+    font-weight: bold;
+    margin-top: 10pt;
+    margin-bottom: 4pt;
+    color: #0b3c5d;
+}
+p {
+    margin-top: 4pt;
+    margin-bottom: 6pt;
+    text-indent: 24pt;
+}
+p.no-indent {
+    text-indent: 0;
+}
+ul, ol {
+    margin-top: 4pt;
+    margin-bottom: 6pt;
+    padding-left: 24pt;
+}
+li {
+    margin-bottom: 3pt;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 8pt;
+    margin-bottom: 12pt;
+    font-size: 9.5pt;
+}
+th {
+    background-color: #0b3c5d;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    padding: 6pt 4pt;
+    border: 1pt solid #444444;
+}
+td {
+    padding: 5pt 5pt;
+    border: 1pt solid #b0bec5;
+    vertical-align: top;
+}
+tr:nth-child(even) {
+    background-color: #f7f9fb;
+}
+.callout {
+    background-color: #eef5fb;
+    border-left: 4pt solid #328cc1;
+    padding: 8pt 12pt;
+    margin: 10pt 0;
+    font-size: 10pt;
+    border-radius: 2px;
+}
+.prompt-box {
+    background-color: #1e1e1e;
+    color: #4ec9b0;
+    padding: 8pt 12pt;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 9.5pt;
+    margin: 8pt 0;
+    border-left: 4pt solid #dcdcaa;
+}
+.badge {
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 8.5pt;
+    font-weight: bold;
+    border-radius: 3px;
+    background-color: #e2e8f0;
+    color: #334155;
+    font-family: 'Consolas', monospace;
+}
+.badge-blue { background-color: #dbeafe; color: #1e40af; }
+.badge-green { background-color: #dcfce7; color: #166534; }
+.badge-purple { background-color: #f3e8ff; color: #6b21a8; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.page-break { page-break-before: always; }
+.diagram-container {
+    text-align: center;
+    margin: 14pt 0;
+}
+.diagram-container img {
+    max-width: 95%;
+    height: auto;
+    border: 1pt solid #cccccc;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+.caption {
+    font-size: 9pt;
+    font-style: italic;
+    color: #555555;
+    text-align: center;
+    margin-top: 4pt;
+}
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover-page">
+    <div class="cover-institution">
+        DEPARTEMEN AKUNTANSI<br>
+        FAKULTAS EKONOMIKA DAN BISNIS<br>
+        UNIVERSITAS DIPONEGORO SEMARANG
+    </div>
+    
+    <div class="cover-title">
+        BUKU PANDUAN PRAKTIKUM<br>
+        ERPNEXT &amp; FRAPPE FRAMEWORK
+    </div>
+    
+    <div class="cover-subtitle">
+        Implementasi Teknologi Modern pada Industri Manufaktur:<br>
+        Sinergi ERPNext v16, Frappe Framework, Docker Desktop (WSL2),<br>
+        Google Antigravity IDE, dan NotebookLM<br>
+        <strong>(Studi Kasus: PT Rio Ferdinanda Manufaktur)</strong>
+    </div>
+    
+    <hr class="cover-divider">
+    
+    <div class="cover-meta">
+        <strong>Penulis:</strong><br>
+        <span class="cover-author">Rio Ferdinanda</span><br>
+        NIM: 12030123140254<br><br>
+        <strong>Dosen Pembimbing:</strong><br>
+        <span class="cover-author">Dr. Totok Dewayanto, S.E., M.Si., Ak., CA.</span><br>
+        NIP: 196503101991031002
+    </div>
+    
+    <div class="cover-footer">
+        PROGRAM STUDI S1 AKUNTANSI<br>
+        FAKULTAS EKONOMIKA DAN BISNIS<br>
+        UNIVERSITAS DIPONEGORO<br>
+        SEMARANG<br>
+        2026
+    </div>
+</div>
+
+<!-- KATA PENGANTAR -->
+<div class="page-break"></div>
+<h1>KATA PENGANTAR</h1>
+
+<p>Puji dan syukur penulis panjatkan ke hadirat Tuhan Yang Maha Esa atas segala rahmat, taufik, dan hidayah-Nya, sehingga buku pembelajaran dan panduan praktikum yang berjudul <strong>"Buku Panduan Praktikum ERPNext &amp; Frappe Framework: Implementasi Teknologi Modern pada Industri Manufaktur"</strong> ini dapat diselesaikan dengan lengkap, sistematis, dan teruji secara empiris.</p>
+
+<p>Perkembangan teknologi komputasi awan, kontainerisasi, dan kecerdasan buatan telah mentransformasi lanskap Sistem Informasi Akuntansi (SIA) pada sektor industri manufaktur. Penerapan sistem <em>Enterprise Resource Planning</em> (ERP) modern kini tidak hanya menuntut pemahaman teoritis mengenai siklus akuntansi dan penentuan harga pokok produksi, melainkan juga penguasaan infrastruktur komputasi kontainer (Docker Desktop berbasis WSL2), orkestrasi kecerdasan buatan otonom dengan protokol keamanan ketat (Google Antigravity IDE dengan <em>Strict Approval Prompting</em>), serta sintesis pengetahuan berbasis <em>Grounded Knowledge Management</em> (NotebookLM).</p>
+
+<p>Buku ini dirancang secara terstruktur untuk menjembatani kesenjangan antara teori akuntansi biaya/manufaktur dan implementasi sistem perangkat lunak riil pada ERPNext Version 16. Melalui studi kasus komprehensif pada <strong>PT Rio Ferdinanda Manufaktur</strong> (industri perakitan furnitur perpaduan kayu solid dan rangka metal), pembaca dibimbing langkah demi langkah mulai dari penyiapan kontainer terisolasi, perancangan bagan akun standar Indonesia (114 akun), impor master dataset multi-tahap, pengelolaan formula produksi (BOM &amp; Routing), eksekusi perintah kerja perakitan (Work Order &amp; Job Cards), hingga penerbitan laporan keuangan berbasis sistem persediaan perpetual otomatis.</p>
+
+<p>Penulis menyampaikan rasa hormat dan terima kasih yang setinggi-tingginya kepada <strong>Bapak Dr. Totok Dewayanto, S.E., M.Si., Ak., CA.</strong> selaku Dosen Pembimbing yang telah memberikan bimbingan, arahan strategis, koreksi substantif, serta inspirasi keilmuan yang tiada henti dalam pengembangan kurikulum praktikum berbasis teknologi mutakhir ini. Ucapan terima kasih juga disampaikan kepada pimpinan Fakultas Ekonomika dan Bisnis Universitas Diponegoro serta rekan-rekan mahasiswa Departemen Akuntansi angkatan 2023 atas diskusi produktif dan kebersamaan akademis yang berharga.</p>
+
+<p>Penulis menyadari bahwa buku panduan ini masih memiliki ruang penyempurnaan seiring pesatnya pembaruan ekosistem Frappe/ERPNext. Oleh karena itu, kritik dan saran konstruktif dari pembaca sangat diharapkan demi penyempurnaan edisi berikutnya. Semoga buku ini memberikan kontribusi nyata bagi pengembangan kompetensi digital akuntan masa depan Indonesia.</p>
+
+<br>
+<table style="border:none; width:100%;">
+<tr style="background:none;">
+    <td style="border:none; width:60%;"></td>
+    <td style="border:none; width:40%; text-align:center;">
+        Semarang, 14 Oktober 2026<br><br>
+        <strong>Penulis,</strong><br><br><br><br>
+        <strong><u>Rio Ferdinanda</u></strong><br>
+        NIM: 12030123140254
+    </td>
+</tr>
+</table>
+
+<!-- DAFTAR ISI -->
+<div class="page-break"></div>
+<h1>DAFTAR ISI</h1>
+
+<table style="border:none; width:100%; font-size:10.5pt; line-height:1.6;">
+<tr style="background:none;"><td style="border:none;"><strong>HALAMAN JUDUL</strong></td><td style="border:none; text-align:right;">i</td></tr>
+<tr style="background:none;"><td style="border:none;"><strong>KATA PENGANTAR</strong></td><td style="border:none; text-align:right;">ii</td></tr>
+<tr style="background:none;"><td style="border:none;"><strong>DAFTAR ISI</strong></td><td style="border:none; text-align:right;">iii</td></tr>
+<tr style="background:none;"><td style="border:none;"><strong>DAFTAR TABEL DAN GAMBAR</strong></td><td style="border:none; text-align:right;">v</td></tr>
+<tr style="background:none;"><td style="border:none;" colspan="2"><hr style="border:0.5pt solid #cccccc; margin:4pt 0;"></td></tr>
+<tr style="background:none;"><td style="border:none;"><strong>BAB I: PENGENALAN ERPNEXT, FRAPPE FRAMEWORK, DOCKER, ANTIGRAVITY, DAN NOTEBOOKLM</strong></td><td style="border:none; text-align:right;">1</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">1.1 Arsitektur Sistem ERPNext dan Frappe Framework</td><td style="border:none; text-align:right;">1</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">1.2 Peran Docker Desktop &amp; WSL2 dalam Lingkungan Pengembangan Kontainer</td><td style="border:none; text-align:right;">3</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">1.3 Pengenalan AI Agent Assistant Google Antigravity IDE</td><td style="border:none; text-align:right;">4</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">1.4 Pengenalan NotebookLM sebagai Knowledge Management System (KMS)</td><td style="border:none; text-align:right;">5</td></tr>
+<tr style="background:none;"><td style="border:none;"><strong>BAB II: PANDUAN INSTALASI DAN TATA KELOLA EKSEKUSI SISTEM</strong></td><td style="border:none; text-align:right;">7</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">2.1 Penyiapan Lingkungan Virtualisasi Docker Desktop &amp; Antigravity IDE</td><td style="border:none; text-align:right;">7</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">2.2 Verifikasi Status Docker Engine dan Stack ERPNext via AI Agent</td><td style="border:none; text-align:right;">7</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">2.3 Mekanisme Strict Approval Prompting pada Antigravity IDE</td><td style="border:none; text-align:right;">8</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">2.4 Akses Layanan Frontend dan Konfigurasi Setup Wizard ERPNext</td><td style="border:none; text-align:right;">8</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">2.5 Generasi Master Dataset Manufaktur (ERP_Rio Ferdinanda) via Prompting</td><td style="border:none; text-align:right;">9</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">2.6 Konversi Dokumentasi Spesifikasi Teknis (.md ke .docx)</td><td style="border:none; text-align:right;">10</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">2.7 Eksekusi Bertahap Master Data dengan Kontrol Izin Otoritas</td><td style="border:none; text-align:right;">10</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">2.8 Validasi Integritas Master Data pada Antarmuka Web ERPNext</td><td style="border:none; text-align:right;">11</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">2.9 Pembuatan &amp; Visualisasi Flowchart Persediaan Multi-Warehouse Terintegrasi</td><td style="border:none; text-align:right;">11</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">2.10 Integrasi Knowledge Management System via NotebookLM</td><td style="border:none; text-align:right;">12</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">2.11 Penyusunan &amp; Injeksi Bagan Akun Manufaktur (COA Excel 114 Akun)</td><td style="border:none; text-align:right;">12</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">2.12 Perumusan Studi Kasus &amp; Eksekusi Skema Praktikum Transaksional</td><td style="border:none; text-align:right;">13</td></tr>
+<tr style="background:none;"><td style="border:none;"><strong>BAB III: EKSPLORASI FITUR DAN MODUL-MODUL UTAMA ERPNEXT VERSION 16</strong></td><td style="border:none; text-align:right;">14</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">3.1 Modul Akuntansi dan Keuangan (Accounting &amp; Finance)</td><td style="border:none; text-align:right;">14</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">3.2 Modul Persediaan dan Gudang (Stock &amp; Supply Chain)</td><td style="border:none; text-align:right;">15</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">3.3 Modul Manufaktur (Manufacturing &amp; MRP)</td><td style="border:none; text-align:right;">16</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">3.4 Modul Penjualan dan Pembelian (Sales &amp; Procurement)</td><td style="border:none; text-align:right;">17</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">3.5 Kustomisasi Sistem DocType dan Pembaruan ERPNext Version 16</td><td style="border:none; text-align:right;">18</td></tr>
+<tr style="background:none;"><td style="border:none;"><strong>BAB IV: IMPLEMENTASI PRAKTIKUM INDUSTRI MANUFAKTUR PT RIO FERDINANDA MANUFAKTUR (RFM)</strong></td><td style="border:none; text-align:right;">19</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">4.1 Profil Perusahaan PT Rio Ferdinanda Manufaktur dan Master Data Praktikum</td><td style="border:none; text-align:right;">19</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">4.2 Kasus 1: Siklus Pengadaan Bahan Baku (Procurement Cycle)</td><td style="border:none; text-align:right;">21</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">4.3 Kasus 2: Penyusunan Formula Produksi (Bill of Materials / BOM &amp; Routing)</td><td style="border:none; text-align:right;">22</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">4.4 Kasus 3: Eksekusi Produksi (Work Order, Job Card, &amp; Stock Entry Manufacture)</td><td style="border:none; text-align:right;">23</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">4.5 Kasus 4: Siklus Penjualan dan Penagihan (Sales Order, Delivery Note, &amp; Invoice)</td><td style="border:none; text-align:right;">24</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">4.6 Kasus 5: Analisis Laporan Keuangan, Valuasi Persediaan, dan Evaluasi Akhir</td><td style="border:none; text-align:right;">25</td></tr>
+<tr style="background:none;"><td style="border:none;"><strong>BAB V: PANDUAN STRUKTUR KODE AKUN (CHART OF ACCOUNTS) DAN MATRIKS JURNAL PERPETUAL</strong></td><td style="border:none; text-align:right;">27</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">5.1 Master Tabel Kode Akun Manufaktur Indonesia (Bagan Akun Standar 114 Akun)</td><td style="border:none; text-align:right;">27</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">5.2 Matriks Alur Jurnal Otomatis ERPNext (Perpetual Inventory Engine)</td><td style="border:none; text-align:right;">29</td></tr>
+<tr style="background:none;"><td style="border:none;"><strong>BAB VI: 5 LATIHAN SOAL PRAKTIKUM &amp; PEMBAHASAN LENGKAP KASUS MANUFAKTUR</strong></td><td style="border:none; text-align:right;">31</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">6.1 Soal Kasus 1: Pengadaan Bahan Baku &amp; Akrual Utang (Stock Received Not Billed)</td><td style="border:none; text-align:right;">31</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">6.2 Soal Kasus 2: Perhitungan Biaya Standar &amp; Formula BOM Multi-Level</td><td style="border:none; text-align:right;">32</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">6.3 Soal Kasus 3: Alokasi Biaya Tenaga Kerja &amp; Overhead Pabrik pada Stock Entry</td><td style="border:none; text-align:right;">33</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">6.4 Soal Kasus 4: Penjualan Kredit, Pengakuan HPP, dan Pengakuan Piutang Usaha</td><td style="border:none; text-align:right;">34</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">6.5 Soal Kasus 5: Pelunasan Piutang, Pembayaran Vendor, dan Rekonsiliasi Kas/Bank</td><td style="border:none; text-align:right;">35</td></tr>
+<tr style="background:none;"><td style="border:none;"><strong>BAB VII: TUTORIAL OPERASIONAL LANGKAH DEMI LANGKAH (STEP-BY-STEP DOCKER &amp; ANTIGRAVITY)</strong></td><td style="border:none; text-align:right;">37</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">Panduan 18 Langkah Praktis Eksekusi ERPNext Terintegrasi</td><td style="border:none; text-align:right;">37</td></tr>
+<tr style="background:none;"><td style="border:none;"><strong>BAB VIII: STANDAR OPERASIONAL PROSEDUR (SOP), ANALISIS SWOT, DAN KESIMPULAN</strong></td><td style="border:none; text-align:right;">44</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">8.1 SOP 9 Langkah Praktikum Manufaktur ERPNext</td><td style="border:none; text-align:right;">44</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">8.2 Tabel Checklist Evaluasi Mandiri Praktikan</td><td style="border:none; text-align:right;">45</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">8.3 Analisis Kelebihan, Keterbatasan, dan SWOT Implementasi ERPNext</td><td style="border:none; text-align:right;">46</td></tr>
+<tr style="background:none;"><td style="border:none; padding-left:15pt;">8.4 Kesimpulan &amp; Rekomendasi Masa Depan</td><td style="border:none; text-align:right;">47</td></tr>
+<tr style="background:none;"><td style="border:none;"><strong>DAFTAR PUSTAKA</strong></td><td style="border:none; text-align:right;">48</td></tr>
+</table>
+
+<!-- BAB I -->
+<div class="page-break"></div>
+<h1>BAB I<br>PENGENALAN ERPNEXT, FRAPPE FRAMEWORK, DOCKER, ANTIGRAVITY, DAN NOTEBOOKLM</h1>
+
+<h2>1.1 Arsitektur Sistem ERPNext dan Frappe Framework</h2>
+<p>Sistem <em>Enterprise Resource Planning</em> (ERP) modern dituntut untuk menyajikan tingkat ketangkasan data yang tinggi, arsitektur modular, dan kemampuan integrasi yang menyeluruh antar-lini fungsional organisasi bisnis. Pada era transformasi digital saat ini, pemisahan data manual (silo) antar-departemen—seperti gudang, produksi, pemasaran, dan pembukuan—merupakan sumber inefisiensi utama yang memicu disparitas saldo persediaan, keterlambatan pengiriman, dan distorsi laporan keuangan.</p>
+
+<p><strong>ERPNext</strong> hadir sebagai solusi ERP terintegrasi <em>open-source</em> paling tangguh dan komprehensif di dunia bisnis saat ini. ERPNext dirancang untuk mengelola seluruh spektrum operasi bisnis modern, mencakup akuntansi umum, manajemen persediaan multi-gudang, manajemen manufaktur (perencanaan kebutuhan material / MRP), manajemen pengadaan (procurement), penjualan (order-to-cash), hingga sumber daya manusia (HRMS). Secara arsitektural, ERPNext tidak dibangun secara monolitik kaku, melainkan berjalan sepenuhnya di atas <strong>Frappe Framework</strong>, sebuah <em>full-stack web application framework</em> berbasis bahasa pemrograman Python di sisi server (backend) dan JavaScript/TypeScript di sisi peramban web (frontend).</p>
+
+<p>Pemisahan yang tegas antara Frappe Framework sebagai fondasi komputasi dan ERPNext sebagai aplikasi bisnis memberikan keunggulan arsitektural yang sangat signifikan dibandingkan sistem komersial berbayar mahal lainnya. Frappe menyediakan seluruh blok infrastruktur aplikasi enterprise modern, yang meliputi:</p>
+
+<ul>
+    <li><strong>DocType Metadata Architecture:</strong> Dalam Frappe, setiap model data, tabel basis data, tampilan formulir, izin hak akses, dan logika validasi didefinisikan sebagai <em>DocType</em>. Skema basis data MariaDB digenerasi secara dinamis berbasis representasi JSON dari DocType, memungkinkan perubahan model bisnis secara fleksibel tanpa merusak struktur relasi dasar.</li>
+    <li><strong>Object-Relational Mapping (ORM) Berperforma Tinggi:</strong> Pengembang dan pengguna dapat berinteraksi dengan entitas bisnis melalui objek Python yang intuitif (seperti <code>frappe.get_doc()</code>, <code>doc.insert()</code>, dan <code>doc.submit()</code>) tanpa harus menyusun kueri SQL mentah yang rentan terhadap galat injeksi dan inkonsistensi data.</li>
+    <li><strong>Role-Based Access Control (RBAC):</strong> Sistem keamanan berjenjang yang memetakan otorisasi dokumen berdasarkan peran pengguna (misal: Manajer Gudang, Operator Produksi, Akuntan, dan Auditor).</li>
+    <li><strong>Asynchronous Task Queue:</strong> Pemrosesan tugas latar belakang (background jobs) yang dikelola oleh <strong>Redis</strong> dan pustaka <strong>RQ (Redis Queue)</strong>, memastikan transaksi akuntansi bernilai tinggi dan pencetakan faktur masal tidak membebani kinerja peramban web pengguna.</li>
+    <li><strong>Event-Driven Accounting Hooks:</strong> Sistem hook yang secara otomatis memicu penjurnalan buku besar saat dokumen operasional berstatus <em>Submitted</em> (docstatus = 1) dan secara otomatis membalik jurnal saat dokumen di-<em>Cancel</em> (docstatus = 2).</li>
+</ul>
+
+<h2>1.2 Peran Docker Desktop &amp; WSL2 dalam Lingkungan Pengembangan Kontainer</h2>
+<p>Dalam praktik operasional perguruan tinggi dan industri, konfigurasi perangkat lunak enterprise pada komputer personal lokal sering kali terbentur oleh variasi sistem operasi, benturan versi pustaka Python, konflik port jaringan, dan dependensi pustaka C yang rumit (dikenal sebagai kendala <em>"it works on my machine"</em>). Teknologi kontainerisasi menggunakan <strong>Docker Desktop</strong> menyelesaikan tantangan ini dengan mengemas aplikasi beserta seluruh pustaka, konfigurasi runtime, dan variabel lingkungannya ke dalam kontainer-kontainer terisolasi yang dapat dijalankan secara konsisten pada sistem operasi apa pun.</p>
+
+<p>Pada sistem operasi Microsoft Windows 10/11, Docker Desktop memanfaatkan keunggulan <strong>Windows Subsystem for Linux 2 (WSL 2)</strong>. WSL 2 mengoperasikan kernel Linux asli (Ubuntu) di dalam mesin virtual hypervisor berbobot ringan (lightweight utility VM) yang mengalokasikan memori dinamis dan menghasilkan efisiensi sistem IO mendekati performa komputasi <em>bare-metal</em>. Arsitektur multi-kontainer ERPNext dikelola menggunakan <code>docker-compose.yml</code> yang mengorkestrasi beberapa layanan inti:</p>
+
+<ol>
+    <li><strong>Kontainer Frontend (Web Server &amp; Reverse Proxy):</strong> Menjalankan Nginx dan Socket.io untuk melayani antarmuka web, file aset statis, serta websocket notifikasi real-time pada port publik <code>8080:8080</code> (atau <code>8081:8080</code>).</li>
+    <li><strong>Kontainer Backend (Application Server):</strong> Menjalankan Python WSGI Gunicorn, bertanggung jawab mengeksekusi logika bisnis Frappe/ERPNext dan mengoperasikan worker asinkron.</li>
+    <li><strong>Kontainer Basis Data Relasional (MariaDB 11.8):</strong> Basis data relasional enterprise terkonfigurasi khusus dengan format baris Dinamis (Barracuda engine) dan dukungan karakter UTF-8 multibyte.</li>
+    <li><strong>Kontainer Cache &amp; Antrean (Redis):</strong> Terdiri dari Redis Cache untuk menyimpan sesi pengguna serta Redis Queue untuk mengelola antrean pengiriman email dan kalkulasi persediaan.</li>
+</ol>
+
+<h2>1.3 Pengenalan AI Agent Assistant Google Antigravity IDE</h2>
+<p><strong>Google Antigravity IDE</strong> merupakan lingkungan pengembangan mutakhir yang dilengkapi dengan <em>Autonomous AI Coding Agent</em> terintegrasi. AI Agent bertindak sebagai asisten rekayasa sistem yang cerdas, yang mampu memahami instruksi bahasa alami praktikan dan menerjemahkannya ke dalam serangkaian perintah terminal Linux bash, perintah CLI <code>bench</code> Frappe, atau kueri Python ORM secara otomatis.</p>
+
+<p>Karakteristik paling fundamental yang membedakan Antigravity IDE dari asisten AI konvensional adalah penerapan prinsip <strong>Strict Approval Prompting</strong> (Tata Kelola <em>Human-in-the-Loop</em>). Dalam konteks Sistem Informasi Akuntansi, integritas data adalah harga mati; sebuah perintah yang memodifikasi basis data keuangan tidak boleh dieksekusi tanpa otorisasi manusia. Oleh karena itu, Antigravity IDE mewajibkan AI Agent untuk menyusun rencana kerja terperinci, berhenti sejenak sebelum mengeksekusi tindakan berisiko, dan menunggu persetujuan eksplisit dari praktikan sebelum perintah dijalankan.</p>
+
+<h2>1.4 Pengenalan NotebookLM sebagai Knowledge Management System (KMS)</h2>
+<p><strong>Google NotebookLM</strong> dimanfaatkan sebagai Sistem Manajemen Pengetahuan (<em>Knowledge Management System</em>) terpusat yang dirancang khusus untuk memandu proses pembelajaran praktikum. Berbeda dengan model bahasa publik yang berpotensi menghasilkan informasi halusinasi, NotebookLM beroperasi berbasis prinsip <strong>Grounded-Source Synthesis</strong>.</p>
+
+<p>Seluruh jawaban, formula biaya manufaktur, pemetaan bagan akun (Chart of Accounts), dan alur jurnal akuntansi yang dihasilkan oleh NotebookLM bersumber langsung 100% dari dokumen acuan yang diunggah oleh pengguna (seperti manual resmi ERPNext, repositori GitHub Frappe, standar akuntansi PSAK/SAK Indonesia, dan dokumen spesifikasi dataset). Sinergi antara <em>NotebookLM</em> sebagai penyimpan dan penalar pengetahuan akuntansi dan <em>Antigravity IDE</em> sebagai enjin eksekusi komputasi membentuk paradigma baru praktikum akuntansi modern yang presisi, adaptif, dan bebas dari halusinasi data.</p>
+
+<!-- BAB II -->
+<div class="page-break"></div>
+<h1>BAB II<br>PANDUAN INSTALASI DAN TATA KELOLA EKSEKUSI SISTEM</h1>
+
+<h2>2.1 Penyiapan Lingkungan Virtualisasi Docker Desktop &amp; Antigravity IDE</h2>
+<p>Tahap awal pelaksanaan praktikum adalah memastikan kesiapan infrastruktur perangkat lunak pada komputer kerja praktikan. Langkah-langkah penyiapan lingkungan kerja adalah sebagai berikut:</p>
+<ol>
+    <li>Mengunduh dan memasang paket resmi <strong>Docker Desktop</strong> untuk Windows. Pastikan fitur <em>"Use WSL 2 instead of Hyper-V"</em> dicentang pada saat proses instalasi.</li>
+    <li>Mengaktifkan subsistem WSL 2 melalui terminal PowerShell dengan hak administrator: <code>wsl --update</code> dan memastikan distribusi Ubuntu telah terpasang.</li>
+    <li>Mengunduh dan memasang <strong>Google Antigravity IDE</strong>. Lakukan autentikasi akun Google resmi pada sistem.</li>
+    <li>Membuka Google Antigravity IDE dan mengarahkan direktori proyek lokal ke folder kerja resmi praktikum: <code>C:\Users\Windows 10\.gemini\antigravity\scratch\ERP_Rio Ferdinanda</code>.</li>
+    <li>Membuka aplikasi Docker Desktop dan memastikan indikator status di pojok kiri bawah menunjukkan warna hijau dengan tulisan <strong>"Engine running"</strong>.</li>
+</ol>
+
+<h2>2.2 Verifikasi Status Docker Engine dan Stack ERPNext via AI Agent</h2>
+<p>Setelah lingkungan kerja lokal terbuka di Antigravity IDE, praktikan melakukan audit status kontainer secara cepat menggunakan asisten AI. Praktikan memasukkan prompt konsultasi berikut pada jendela obrolan Antigravity:</p>
+
+<div class="prompt-box">
+&gt; "Apakah ERPNext sudah terinstal di laptop ini? Jika belum instalkan, untuk nama folder datasetnya ERP_Rio Ferdinanda"
+</div>
+
+<p class="no-indent">Antigravity AI Agent mengeksekusi perintah <code>docker ps</code> untuk memindai kontainer aktif. Apabila stack kontainer <code>frappe_docker</code> telah aktif, Antigravity akan melaporkan identitas kontainer frontend, backend, mariadb, dan redis beserta tautan akses resmi:</p>
+
+<div class="callout">
+<strong>Status Layanan Terverifikasi:</strong> Kontainer <code>frappe_docker-frontend-1</code> beroperasi aktif dan memetakan antarmuka web pada alamat publik <a href="http://localhost:8080">http://localhost:8080</a> (atau port 8081). Layanan siap diakses melalui peramban web Chrome/Edge.
+</div>
+
+<h2>2.3 Mekanisme Strict Approval Prompting pada Antigravity IDE</h2>
+<p>Guna mencegah terjadinya kekeliruan eksekusi data masal atau kerusakan skema basis data, praktikan wajib menetapkan tata aturan persetujuan bertahap (<em>Strict Approval Prompting</em>) kepada AI Agent melalui prompt instruksi berikut:</p>
+
+<div class="prompt-box">
+&gt; "Jalankan sesuai panduan yang anda buat secara urut dan bertahap, serta anda harus meminta ijin ke saya bila mau menjalankan tahap demi tahap selanjutnya."
+</div>
+
+<p>Dengan prompt ini, AI Agent secara disiplin menyusun proposal rencana tindakan untuk satu tahapan, menampilkan ringkasan data yang akan diproses, dan menghentikan proses sementara untuk menunggu izin resmi praktikan. Praktikan memvalidasi usulan tersebut dan mengetikkan kalimat persetujuan:</p>
+
+<div class="prompt-box">
+&gt; "Silahkan jalankan tahap 1" (kemudian dilanjutkan "Silahkan jalankan tahap 2", dan seterusnya).
+</div>
+
+<h2>2.4 Akses Layanan Frontend dan Konfigurasi Setup Wizard ERPNext</h2>
+<p>Setelah kontainer berstatus aktif, praktikan membuka peramban web dan mengakses alamat <code>http://localhost:8080</code> (atau <code>http://localhost:8081</code>). Langkah-langkah penyelesaian Setup Wizard adalah sebagai berikut:</p>
+<ul>
+    <li><strong>Langkah 1 (Autentikasi):</strong> Masuk menggunakan kredensial default administrator (Username: <code>Administrator</code>, Password: <code>admin</code>).</li>
+    <li><strong>Langkah 2 (Bahasa &amp; Wilayah):</strong> Pilih Bahasa: <em>English / Bahasa Indonesia</em>, Negara: <em>Indonesia</em>, Zona Waktu: <em>Asia/Jakarta</em>, Mata Uang: <em>IDR (Rupiah)</em>.</li>
+    <li><strong>Langkah 3 (Profil Entitas Bisnis):</strong> Masukkan nama entitas manufaktur resmi: <strong>PT Rio Ferdinanda Manufaktur</strong>. Pilih domain bisnis: <strong>Manufacturing</strong>.</li>
+    <li><strong>Langkah 4 (Inisialisasi):</strong> Klik tombol <em>Complete Setup</em>. Sistem Frappe akan mengeksekusi migrasi tabel MariaDB, menyusun modul-modul manufaktur standar, dan mengarahkan ke halaman meja kerja utama (Desk GUI).</li>
+</ul>
+
+<h2>2.5 Generasi Master Dataset Manufaktur (ERP_Rio Ferdinanda) via Prompting</h2>
+<p>Pembuatan data master dilakukan secara presisi dengan menginstruksikan AI Agent Antigravity untuk merancang dataset industri terstruktur dalam format CSV:</p>
+
+<div class="prompt-box">
+&gt; "Buat dataset untuk bisa digunakan dalam praktik ERPNext, dataset dibuat secara sederhana. Skema praktik untuk tipe industri manufaktur. Dataset ditaruh di folder khusus dengan nama ERP_Rio Ferdinanda"
+</div>
+
+<p class="no-indent">Antigravity menghasilkan struktur dataset master komprehensif yang memuat katalog bahan baku kayu solid dan rangka metal, stasiun kerja, operasi pabrik, resep BOM, hingga skenario transaksi bisnis nyata:</p>
+
+<table>
+    <thead>
+        <tr>
+            <th style="width:8%;">No</th>
+            <th style="width:30%;">Nama Berkas CSV</th>
+            <th style="width:25%;">DocType / Kategori</th>
+            <th style="width:37%;">Keterangan &amp; Fungsi Bisnis</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="text-center">1</td>
+            <td><code>01_Item_Group.csv</code></td>
+            <td><span class="badge badge-blue">Item Group</span></td>
+            <td>Hierarki kategori barang (Bahan Baku, Penolong, WIP, Produk Jadi).</td>
+        </tr>
+        <tr>
+            <td class="text-center">2</td>
+            <td><code>02_Warehouse.csv</code></td>
+            <td><span class="badge badge-blue">Warehouse</span></td>
+            <td>Struktur lokasi gudang fisik (Stores, WIP, Finished Goods, Scrap).</td>
+        </tr>
+        <tr>
+            <td class="text-center">3</td>
+            <td><code>03_Item.csv</code></td>
+            <td><span class="badge badge-blue">Item Master</span></td>
+            <td>Katalog item material kayu pinus, pipa hollow, baut, cat, meja jadi.</td>
+        </tr>
+        <tr>
+            <td class="text-center">4</td>
+            <td><code>04_Supplier.csv</code></td>
+            <td><span class="badge badge-purple">Supplier</span></td>
+            <td>Data identitas mitra pemasok material (PT Baja Logam, CV Kayu Lestari).</td>
+        </tr>
+        <tr>
+            <td class="text-center">5</td>
+            <td><code>05_Customer.csv</code></td>
+            <td><span class="badge badge-green">Customer</span></td>
+            <td>Data entitas pelanggan komersial (CV Mebel Sejahtera, Toko Furnitur).</td>
+        </tr>
+        <tr>
+            <td class="text-center">6</td>
+            <td><code>06_Workstation_dan_Operation.csv</code></td>
+            <td><span class="badge badge-purple">Workstation &amp; Op</span></td>
+            <td>Pusat kerja pabrik (Potong, Las, Cat, Rakit) beserta tarif per jam.</td>
+        </tr>
+        <tr>
+            <td class="text-center">7</td>
+            <td><code>07_Bill_of_Materials_BOM.csv</code></td>
+            <td><span class="badge badge-blue">Bill of Materials</span></td>
+            <td>Formula baku konsumsi bahan mentah dan routing durasi stasiun kerja.</td>
+        </tr>
+        <tr>
+            <td class="text-center">8</td>
+            <td><code>08_Opening_Stock_Stock_Entry.csv</code></td>
+            <td><span class="badge badge-green">Stock Entry</span></td>
+            <td>Saldo awal fisik material di gudang bahan baku sebelum produksi.</td>
+        </tr>
+        <tr>
+            <td class="text-center">9</td>
+            <td><code>09_Skenario_Transaksi_Praktik.csv</code></td>
+            <td><span class="badge badge-blue">Transactional</span></td>
+            <td>Rangkaian urutan transaksi penjualan, perintah kerja, dan penerimaan kas.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>2.6 Konversi Dokumentasi Spesifikasi Teknis (.md ke .docx)</h2>
+<p>Guna memudahkan dokumentasi praktikum perkantoran dan pelaporan tugas akademis, panduan spesifikasi teknis dalam format Markdown (.md) dikonversi secara otomatis ke format Microsoft Word (.docx) menggunakan prompt:</p>
+
+<div class="prompt-box">
+&gt; "Konversikan file md menjadi file docx"
+</div>
+
+<p class="no-indent">Antigravity memanfaatkan perantara Word COM / Pandoc untuk menghasilkan berkas resmi <code>Panduan_Praktik_ERPNext_Manufaktur.docx</code> dengan format tipografi yang rapi dan siap cetak.</p>
+
+<h2>2.7 Eksekusi Bertahap Master Data dengan Kontrol Izin Otoritas</h2>
+<p>Proses impor master data ke basis data MariaDB ERPNext WAJIB mengikuti hierarki relasional (Foreign Key Hierarchy) guna menghindari kegagalan dependensi data:</p>
+<ul>
+    <li><strong>Tahap 1 (Master Fondasi):</strong> Pendaftaran Item Group dan Gudang Penyimpanan.</li>
+    <li><strong>Tahap 2 (Master Entitas &amp; Katalog):</strong> Pendaftaran Item Master, Supplier, dan Customer.</li>
+    <li><strong>Tahap 3 (Master Manufaktur):</strong> Pendaftaran Workstation, Operation, dan Bill of Materials (BOM).</li>
+    <li><strong>Tahap 4 (Saldo Awal &amp; Transaksi):</strong> Stock Entry Material Receipt dan eksekusi transaksi terpadu.</li>
+</ul>
+
+<h2>2.8 Validasi Integritas Master Data pada Antarmuka Web ERPNext</h2>
+<p>Setelah setiap tahapan selesai diproses oleh AI Agent di terminal, praktikan melakukan verifikasi visual secara mandiri pada antarmuka web ERPNext: memeriksa modul <strong>Stock &gt; Item</strong> untuk melihat keberadaan kode item, modul <strong>Manufacturing &gt; Bill of Materials</strong> untuk memeriksa kelengkapan formula resep, dan modul <strong>Accounts &gt; Chart of Accounts</strong> untuk memastikan struktur kode akun telah terhubung dengan tepat.</p>
+
+<h2>2.9 Pembuatan &amp; Visualisasi Flowchart Persediaan Multi-Warehouse Terintegrasi</h2>
+<p>Manajemen persediaan multi-gudang pada industri perakitan memerlukan kejelasan visual terkait mutasi aset fisik dan titik kontrol kualitas (QC). Praktikan meminta pembuatan bagan alir melalui prompt:</p>
+
+<div class="prompt-box">
+&gt; "Buat flowchart untuk sistem persediaan di ERPNext ini, buat file dalam bentuk docx, hasil ditaruh di folder khusus"
+</div>
+
+<p class="no-indent">Antigravity menyusun diagram alir komprehensif yang memetakan pergerakan barang mulai dari penerimaan bahan mentah di <em>Gudang Bahan Baku</em>, transfer material ke <em>Gudang WIP</em>, penyelesaian perakitan ke <em>Gudang Barang Jadi</em>, penampungan scrap di <em>Gudang Scrap</em>, hingga pengiriman barang ke pelanggan via <em>Delivery Note</em>.</p>
+
+<div class="diagram-container">
+    <img src="flowchart_persediaan_erpnext.png" alt="Diagram Alir Sistem Persediaan Multi-Warehouse ERPNext PT Rio Ferdinanda Manufaktur">
+    <div class="caption">Gambar 2.1: Flowchart Sistem Persediaan Multi-Warehouse &amp; Siklus Manufaktur Terintegrasi ERPNext</div>
+</div>
+
+<h2>2.10 Integrasi Knowledge Management System via NotebookLM</h2>
+<p>Praktikan mengintegrasikan NotebookLM sebagai sumber acuan analitis:</p>
+<ol>
+    <li>Membuat notebook kerja baru berjudul <em>"Sistem Informasi Akuntansi Manufaktur ERPNext"</em>.</li>
+    <li>Mengunggah seluruh dokumen dataset, panduan praktik, serta regulasi standar akuntansi biaya manufaktur.</li>
+    <li>Memberikan prompt perumusan bagan akun standar: <em>"Buat kode untuk tipe industri manufaktur guna diterapkan pada ERPNext dan buat dalam file excel."</em></li>
+</ol>
+
+<h2>2.11 Penyusunan &amp; Injeksi Bagan Akun Manufaktur (COA Excel 114 Akun)</h2>
+<p>Bagan Akun standar Indonesia yang memuat 114 akun hierarkis (disusun rapi dalam file Excel <code>Kode_Akun_ERPNext_Manufaktur.xlsx</code>) diinjeksikan secara terautomasi ke dalam basis data ERPNext menggunakan skrip Python yang dieksekusi oleh Antigravity atas izin praktikan:</p>
+
+<div class="prompt-box">
+&gt; "Silahkan pasang kode akun yang ada dalam file Kode_Akun_ERPNext_Manufaktur.xlsx yang ada pada folder ERP_Rio Ferdinanda"
+</div>
+
+<h2>2.12 Perumusan Studi Kasus &amp; Eksekusi Skema Praktikum Transaksional</h2>
+<p>Skenario praktikum diuji secara menyeluruh dengan mengeksekusi studi kasus transaksi nyata yang mencakup siklus pembelian bahan mentah, pembuatan BOM perakitan meja belajar, pengeluaran perintah kerja produksi, hingga penjualan dan penagihan kas.</p>
+
+<!-- BAB III -->
+<div class="page-break"></div>
+<h1>BAB III<br>EKSPLORASI FITUR DAN MODUL-MODUL UTAMA ERPNEXT VERSION 16</h1>
+
+<h2>3.1 Modul Akuntansi dan Keuangan (Accounting &amp; Finance)</h2>
+<p>Modul Akuntansi merupakan episentrum konsolidasi informasi keuangan pada ERPNext Version 16. Berbeda dengan aplikasi akuntansi pembukuan sederhana yang mengandalkan penjurnalan manual, ERPNext beroperasi berbasis filosofi <strong>Automated Double-Entry Bookkeeping</strong>. Seluruh pergerakan aset fisik, siklus pengadaan material, pemakaian bahan baku di lini perakitan, dan pengiriman barang ke konsumen secara langsung memicu pembuatan ayat jurnal buku besar (<em>General Ledger Entries / GL Entries</em>) secara seketika (<em>real-time</em>) tanpa intervensi pengetikan manual.</p>
+
+<p>Fitur-fitur utama pada modul akuntansi ERPNext v16 mencakup:</p>
+<ul>
+    <li><strong>Hierarchical Chart of Accounts (COA):</strong> Pengorganisasian bagan akun berbentuk struktur pohon bertingkat (Tree Structure) yang membagi akun menjadi 5 klasifikasi fundamental: <em>Asset, Liability, Equity, Income,</em> dan <em>Expense</em>. ERPNext v16 membedakan secara tegas antara Akun Grup (Group Account) yang berfungsi sebagai penampung saldo konsolidasi dan Akun Buku Besar (Ledger Account) yang menjadi tujuan langsung pencatatan transaksi.</li>
+    <li><strong>Real-Time Sub-Ledger &amp; Control Accounts:</strong> Manajemen buku pembantu Piutang Usaha (<em>Accounts Receivable</em>) dan Utang Usaha (<em>Accounts Payable</em>) yang terkontrol secara otomatis melalui akun pengendali (Control Account). Setiap kali transaksi rekanan dibukukan, sistem memvalidasi batas kredit (<em>Credit Limit</em>) dan menghitung umur piutang (<em>Aging Analysis</em>).</li>
+    <li><strong>Multi-Currency &amp; Forex Revaluation:</strong> Kemampuan mencatat transaksi dalam berbagai mata uang internasional (seperti USD, EUR, JPY) dengan kurs transaksi harian, serta menyediakan fitur revaluasi saldo valuta asing pada akhir periode akuntansi sesuai standar PSAK 10.</li>
+    <li><strong>Pajak Terintegrasi (Tax Templates):</strong> Konfigurasi otomatis pemungutan Pajak Pertambahan Nilai (PPN 11%) dan Pajak Penghasilan (PPh 22 / PPh 23) yang dapat diintegrasikan dengan modul penjualan dan pembelian.</li>
+    <li><strong>Pelaporan Keuangan Dinamis:</strong> Penerbitan laporan keuangan standar enterprise seperti <em>Trial Balance</em> (Neraca Saldo), <em>Balance Sheet</em> (Neraca), <em>Profit and Loss Statement</em> (Laporan Laba Rugi Komprehensif), dan <em>Cash Flow Statement</em> (Laporan Arus Kas) yang dapat diekspor ke format PDF maupun spreadsheet Excel.</li>
+</ul>
+
+<h2>3.2 Modul Persediaan dan Gudang (Stock &amp; Supply Chain)</h2>
+<p>Modul Persediaan mengelola pergerakan barang fisik dan valuasi persediaan di seluruh lokasi fasilitas perusahaan. ERPNext menerapkan sistem <strong>Perpetual Inventory Valuation</strong>, di mana nilai persediaan yang tercatat pada neraca keuangan selalu sinkron dengan saldo kuantitas fisik di gudang setiap detik transaksi terjadi.</p>
+
+<p>Karakteristik penting pada modul persediaan meliputi:</p>
+<ol>
+    <li><strong>Master Item Komprehensif:</strong> Pendaftaran atribut spesifikasi barang, kode SKU/barcode unik, satuan pengukuran standar (<em>Unit of Measure / UOM</em> seperti Nos, Batang, Batang, Kaleng, Kg), serta penetapan metode valuasi resmi (FIFO atau Moving Average).</li>
+    <li><strong>Hierarki Multi-Warehouse:</strong> Struktur pergudangan pohon yang memungkinkan pembagian lokasi penyimpanan logis maupun fisik. Pada industri manufaktur, gudang dipisahkan menjadi:
+        <ul>
+            <li><em>Gudang Bahan Baku (Stores):</em> Menyimpan material mentah yang diterima dari pemasok sebelum diproses.</li>
+            <li><em>Gudang Barang Dalam Proses (Work In Progress / WIP):</em> Area transit dan penampungan komponen selama pengerjaan di lantai pabrik.</li>
+            <li><em>Gudang Produk Jadi (Finished Goods):</em> Fasilitas penyimpanan produk jadi siap jual yang memenuhi standar kendali mutu (QC).</li>
+            <li><em>Gudang Scrap / Reject:</em> Area penampungan sisa potongan material, serbuk kayu, atau komponen cacat.</li>
+        </ul>
+    </li>
+    <li><strong>Landed Cost Voucher (LCV):</strong> Fitur untuk mengkapitalisasi biaya pengangkutan (freight), asuransi pengiriman, dan bea masuk kepabeanan ke dalam nilai perolehan harga pokok persediaan bahan baku secara proporsional.</li>
+    <li><strong>Stock Reconciliation &amp; Stock Ledger:</strong> Laporan audit historis (Stock Ledger) yang melacak kartu stok individual secara kronologis, serta modul Stock Reconciliation untuk mencatat hasil inventarisasi fisik (<em>stock opname</em>).</li>
+</ol>
+
+<h2>3.3 Modul Manufaktur (Manufacturing &amp; MRP)</h2>
+<p>Modul Manufaktur mengendalikan proses transformasi bahan baku mentah menjadi produk bernilai tambah melalui tahapan perakitan yang terencana. Modul ini merupakan inti operasional bagi industri Make-to-Stock (MTS) maupun Make-to-Order (MTO).</p>
+
+<p>Arsitektur modul manufaktur terdiri dari 4 komponen kunci:</p>
+<ul>
+    <li><strong>Workstation (Stasiun Kerja):</strong> Fasilitas fisik atau lini kerja tempat aktivitas produksi dijalankan (misal: Mesin Pemotongan, Mesin Las, Ruang Cat Duco, dan Meja Perakitan). Setiap Workstation memiliki konfigurasi <em>Hour Rate</em> (tarif biaya overhead dan tenaga kerja per jam) yang menjadi dasar penyerapan biaya konversi.</li>
+    <li><strong>Operation (Operasi Pabrik):</strong> Definisi unit pekerjaan standar (seperti Pemotongan Kayu, Pengelasan Rangka, Finishing Cat, dan Perakitan Ergonomis).</li>
+    <li><strong>Bill of Materials (BOM):</strong> Formula resep rancang bangun teknis yang memuat rasio kebutuhan bahan mentah per satu unit produk jadi, routing urutan stasiun kerja yang harus dilalui, durasi pengerjaan standar (dalam menit), serta kalkulasi biaya standar (Standard Costing).</li>
+    <li><strong>Work Order (Surat Perintah Kerja):</strong> Dokumen instruksi formal untuk memulai rangkaian produksi pada target kuantitas tertentu. Work Order secara otomatis menerbitkan <strong>Job Cards</strong> untuk setiap stasiun kerja dan mengontrol dokumen <strong>Stock Entry</strong> (Transfer Bahan Baku ke WIP serta Penyelesaian Barang Jadi).</li>
+</ul>
+
+<h2>3.4 Modul Penjualan dan Pembelian (Sales &amp; Procurement)</h2>
+<p>Siklus komersial pada ERPNext v16 menghubungkan interaksi eksternal dengan vendor dan konsumen secara mulus:</p>
+<ul>
+    <li><strong>Siklus Pengadaan (Procurement Cycle):</strong> Dimulai dari pengajuan kebutuhan (<em>Material Request</em>), permintaan penawaran (<em>Request for Quotation</em>), pesanan pembelian resmi (<em>Purchase Order / PO</em>), penerimaan barang fisik di dermaga gudang (<em>Purchase Receipt</em>), pencatatan faktur tagihan pemasok (<em>Purchase Invoice</em>), hingga pengeluaran kas (<em>Payment Entry</em>).</li>
+    <li><strong>Siklus Penjualan (Order-to-Cash Cycle):</strong> Dimulai dari penawaran harga kepada calon pembeli (<em>Quotation</em>), penandatanganan pesanan jual (<em>Sales Order / SO</em>), penerbitan surat jalan dan pengeluaran barang jadi (<em>Delivery Note</em>), penerbitan faktur tagihan (<em>Sales Invoice</em>), hingga penerimaan pelunasan piutang (<em>Payment Entry</em>).</li>
+</ul>
+
+<h2>3.5 Kustomisasi Sistem DocType dan Pembaruan ERPNext Version 16</h2>
+<p>Salah satu keunggulan terbesar ERPNext Version 16 adalah kemampuannya untuk dikustomisasi tanpa mengubah kode inti framework (<em>Low-Code / No-Code Extensibility</em>):</p>
+<ul>
+    <li><strong>Custom Field &amp; Form Builder:</strong> Menambahkan kolom data baru secara visual (seperti NIK Pengemudi, Nomor Polisi Truk, atau Sertifikat Kayu FSC).</li>
+    <li><strong>Client Scripts (JavaScript):</strong> Mengatur validasi interaktif di browser pengguna, kalkulasi diskon otomatis, atau peringatan batas stok minimum.</li>
+    <li><strong>Server Scripts &amp; Webhooks (Python):</strong> Mengintegrasikan sistem dengan API perbankan nasional, kurir logistik pihak ketiga, atau pelaporan pajak elektronik e-Faktur.</li>
+    <li><strong>Peningkatan Kinerja Version 16:</strong> Version 16 memperkenalkan optimalisasi konektor basis data MariaDB berbasis bahasa C yang mempercepat eksekusi kueri agregasi persediaan hingga 50%, antarmuka pengguna berbasis Workspace yang lebih bersih, serta pelacakan silsilah nomor seri dan batch (<em>Batch Traceability</em>) yang lebih ketat.</li>
+</ul>
+
+<!-- BAB IV -->
+<div class="page-break"></div>
+<h1>BAB IV<br>IMPLEMENTASI PRAKTIKUM INDUSTRI MANUFAKTUR PT RIO FERDINANDA MANUFAKTUR (RFM)</h1>
+
+<h2>4.1 Profil Perusahaan PT Rio Ferdinanda Manufaktur dan Master Data Praktikum</h2>
+<p>Praktikum Sistem Informasi Akuntansi ini menerapkan studi kasus pada entitas bisnis manufaktur <strong>PT Rio Ferdinanda Manufaktur (RFM)</strong>. Perusahaan ini bergerak dalam bidang manufaktur furnitur modern bergaya industrial yang memadukan material kayu solid ramah lingkungan dengan rangka baja pipa hollow kokoh.</p>
+
+<p>Pada pelaksanaan simulasi ini, praktikan bertindak sebagai Manajer Operasional merangkap Kepala Akuntan yang bertanggung jawab penuh terhadap konfigurasi sistem, pemeliharaan master data, pelaksanaan transaksi operasional pabrik, serta pelaporan kinerja keuangan.</p>
+
+<p>Katalog master data yang didaftarkan ke dalam sistem ERPNext v16 mencakup:</p>
+
+<table>
+    <thead>
+        <tr>
+            <th style="width:18%;">Kode Item</th>
+            <th style="width:32%;">Nama Deskripsi Barang</th>
+            <th style="width:18%;">Kelompok Barang</th>
+            <th style="width:12%;">Satuan (UOM)</th>
+            <th style="width:20%;">Harga Standar (IDR)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>PROD-MEJA-01</code></td>
+            <td>Meja Belajar Minimalis RF-100</td>
+            <td><span class="badge badge-green">Produk Jadi</span></td>
+            <td class="text-center">Nos</td>
+            <td class="text-right">Rp 475.000</td>
+        </tr>
+        <tr>
+            <td><code>PROD-RAK-01</code></td>
+            <td>Rak Buku Sudut Industrial RF-200</td>
+            <td><span class="badge badge-green">Produk Jadi</span></td>
+            <td class="text-center">Nos</td>
+            <td class="text-right">Rp 350.000</td>
+        </tr>
+        <tr>
+            <td><code>RAW-KAYU-01</code></td>
+            <td>Papan Kayu Solid Jati Belanda 120x60x2cm</td>
+            <td><span class="badge badge-blue">Bahan Baku</span></td>
+            <td class="text-center">Nos</td>
+            <td class="text-right">Rp 45.000</td>
+        </tr>
+        <tr>
+            <td><code>RAW-PIPA-01</code></td>
+            <td>Pipa Besi Hollow Galvanis 4x4cm (6m)</td>
+            <td><span class="badge badge-blue">Bahan Baku</span></td>
+            <td class="text-center">Batang</td>
+            <td class="text-right">Rp 65.000</td>
+        </tr>
+        <tr>
+            <td><code>RAW-BAUT-01</code></td>
+            <td>Baut Sekrup Baja M6x40mm + Mur</td>
+            <td><span class="badge badge-blue">Bahan Penolong</span></td>
+            <td class="text-center">Nos</td>
+            <td class="text-right">Rp 1.500</td>
+        </tr>
+        <tr>
+            <td><code>RAW-CAT-01</code></td>
+            <td>Cat Duco Anti Karat Hitam Doff 1L</td>
+            <td><span class="badge badge-blue">Bahan Baku</span></td>
+            <td class="text-center">Kaleng</td>
+            <td class="text-right">Rp 85.000</td>
+        </tr>
+        <tr>
+            <td><code>RAW-KAKI-01</code></td>
+            <td>Karet Pelindung Kaki Meja Anti Selip</td>
+            <td><span class="badge badge-blue">Bahan Penolong</span></td>
+            <td class="text-center">Nos</td>
+            <td class="text-right">Rp 5.000</td>
+        </tr>
+        <tr>
+            <td><code>RAW-AMPLAS-01</code></td>
+            <td>Kertas Amplas Grid 240 Ekstra Halus</td>
+            <td><span class="badge badge-blue">Bahan Habis Pakai</span></td>
+            <td class="text-center">Lembar</td>
+            <td class="text-right">Rp 3.500</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Konfigurasi fasilitas stasiun kerja dan tarif pembebanan konversi pabrik:</p>
+
+<table>
+    <thead>
+        <tr>
+            <th style="width:20%;">Kode Workstation</th>
+            <th style="width:30%;">Nama Stasiun Kerja</th>
+            <th style="width:30%;">Operasi Manufaktur</th>
+            <th style="width:20%;">Tarif Biaya / Jam</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>WS-POTONG</code></td>
+            <td>Stasiun Pemotongan Material</td>
+            <td>Pemotongan Kayu &amp; Pipa Besi</td>
+            <td class="text-right">Rp 35.000</td>
+        </tr>
+        <tr>
+            <td><code>WS-LAS</code></td>
+            <td>Stasiun Pengelasan &amp; Gerinda</td>
+            <td>Pengelasan Rangka Hollow</td>
+            <td class="text-right">Rp 45.000</td>
+        </tr>
+        <tr>
+            <td><code>WS-CAT</code></td>
+            <td>Stasiun Finishing &amp; Spray Duco</td>
+            <td>Pengecatan &amp; Pengeringan Cat</td>
+            <td class="text-right">Rp 40.000</td>
+        </tr>
+        <tr>
+            <td><code>WS-RAKIT</code></td>
+            <td>Stasiun Perakitan Ergonomis &amp; QC</td>
+            <td>Perakitan Akhir &amp; Inspeksi Mutu</td>
+            <td class="text-right">Rp 30.000</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>4.2 Kasus 1: Siklus Pengadaan Bahan Baku (Procurement Cycle)</h2>
+<p>PT Rio Ferdinanda Manufaktur mengawali operasi dengan melakukan pengadaan material mentah kepada mitra rekanan vendor terdaftar untuk mendukung rencana perakitan:</p>
+<ol>
+    <li><strong>Penerbitan Purchase Order:</strong> Manajer Pengadaan menerbitkan dokumen resmi PO kepada <strong>PT Baja Logam Nusantara</strong> untuk 20 batang pipa hollow dan 200 buah baut baja, kepada <strong>CV Kayu Lestari Abadi</strong> untuk 40 papan kayu jati belanda, dan kepada <strong>Toko Cat &amp; Kimia Indah</strong> untuk 10 kaleng cat duco.</li>
+    <li><strong>Penerimaan Fisik Barang (Purchase Receipt):</strong> Pengiriman material tiba di gerbang pabrik. Petugas gudang melakukan inspeksi visual kuantitas dan spesifikasi fisik, lalu memposting dokumen <code>Purchase Receipt</code> MAT-PRE-2026-00001. Aset fisik resmi dibukukan ke dalam <em>Gudang Bahan Baku - RF</em>.</li>
+    <li><strong>Pencatatan Akrual Persediaan:</strong> Sistem akuntansi secara otomatis mengkredit akun kewajiban lancar sementara: <code>1136 - Stock Received But Not Billed</code> dan mendebet akun aset persediaan: <code>1131 - Persediaan Bahan Baku Utama</code>.</li>
+    <li><strong>Penerimaan Tagihan (Purchase Invoice):</strong> Bagian Keuangan menerima invoice resmi pemasok dan menerbitkan <code>Purchase Invoice</code>, yang membalik akun kliring 1136 ke akun utang definitif <code>2111 - Utang Dagang Pemasok</code>.</li>
+</ol>
+
+<h2>4.3 Kasus 2: Penyusunan Formula Produksi (Bill of Materials / BOM &amp; Routing)</h2>
+<p>Formula standar pembuatan satu unit <strong>Meja Belajar Minimalis RF-100 (PROD-MEJA-01)</strong> disusun dengan memperhitungkan komponen biaya bahan baku langsung (Direct Materials), biaya tenaga kerja langsung (Direct Labor), serta biaya overhead pabrik (Factory Overhead):</p>
+
+<table>
+    <thead>
+        <tr>
+            <th style="width:20%;">Komponen Biaya</th>
+            <th style="width:35%;">Rincian Kebutuhan per Unit</th>
+            <th style="width:20%;">Rasio Kuantitas</th>
+            <th style="width:25%;">Subtotal Biaya (IDR)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Biaya Bahan Baku:</strong></td>
+            <td>Papan Kayu Solid Jati Belanda</td>
+            <td class="text-center">1.0 Nos @ Rp 45.000</td>
+            <td class="text-right">Rp 45.000</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Pipa Besi Hollow Galvanis</td>
+            <td class="text-center">0.5 Batang @ Rp 65.000</td>
+            <td class="text-right">Rp 32.500</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Baut Sekrup Baja M6x40mm</td>
+            <td class="text-center">8.0 Nos @ Rp 1.500</td>
+            <td class="text-right">Rp 12.000</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Cat Duco Anti Karat Hitam</td>
+            <td class="text-center">0.25 Kaleng @ Rp 85.000</td>
+            <td class="text-right">Rp 21.250</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Karet Pelindung Kaki Meja</td>
+            <td class="text-center">4.0 Nos @ Rp 5.000</td>
+            <td class="text-right">Rp 20.000</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Kertas Amplas Grid 240</td>
+            <td class="text-center">1.0 Lembar @ Rp 3.500</td>
+            <td class="text-right">Rp 3.500</td>
+        </tr>
+        <tr style="background-color:#eef5fb; font-weight:bold;">
+            <td colspan="3">Total Estimasi Biaya Bahan Langsung (Direct Materials)</td>
+            <td class="text-right">Rp 134.250</td>
+        </tr>
+        <tr>
+            <td><strong>Biaya Konversi:</strong></td>
+            <td>Pemotongan Bahan (WS-POTONG)</td>
+            <td class="text-center">15 Menit @ Rp 35.000/jam</td>
+            <td class="text-right">Rp 8.750</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Pengelasan Rangka (WS-LAS)</td>
+            <td class="text-center">20 Menit @ Rp 45.000/jam</td>
+            <td class="text-right">Rp 15.000</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Pengecatan Duco (WS-CAT)</td>
+            <td class="text-center">15 Menit @ Rp 40.000/jam</td>
+            <td class="text-right">Rp 10.000</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Perakitan &amp; QC (WS-RAKIT)</td>
+            <td class="text-center">20 Menit @ Rp 30.000/jam</td>
+            <td class="text-right">Rp 10.000</td>
+        </tr>
+        <tr style="background-color:#eef5fb; font-weight:bold;">
+            <td colspan="3">Total Estimasi Biaya Operasi Konversi (DL &amp; FOH)</td>
+            <td class="text-right">Rp 43.750</td>
+        </tr>
+        <tr style="background-color:#0b3c5d; color:#ffffff; font-weight:bold;">
+            <td colspan="3">TOTAL ESTIMASI HARGA POKOK PRODUKSI (HPP) PER UNIT</td>
+            <td class="text-right">Rp 178.000</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>4.4 Kasus 3: Eksekusi Produksi (Work Order &amp; Stock Entry)</h2>
+<p>Proses perakitan meja belajar dieksekusi dengan tahapan operasional ketat:</p>
+<ol>
+    <li><strong>Penerbitan Work Order:</strong> Berdasarkan perencanaan persediaan Make-to-Stock, Manajer Pabrik merilis <code>Work Order</code> MFG-WO-2026-00001 untuk memproduksi 10 unit <code>PROD-MEJA-01</code>. Target Gudang Bahan Baku adalah <em>Gudang Bahan Baku - RF</em>, Gudang Transit <em>Gudang WIP Produksi - RF</em>, dan Gudang Produk Jadi <em>Gudang Barang Jadi - RF</em>.</li>
+    <li><strong>Material Transfer for Manufacture:</strong> Dokumen <code>Stock Entry (Material Transfer)</code> diterbitkan untuk mengeluarkan 10 papan kayu, 5 batang pipa hollow, 80 baut sekrup, 2.5 kaleng cat, 40 karet pelindung kaki, dan 10 amplas ke lantai pabrik. Secara akuntansi, nilai persediaan berpindah dari akun <code>1131 (Bahan Baku)</code> ke akun <code>1133 (Barang Dalam Proses / WIP)</code> sebesar Rp 1.342.500.</li>
+    <li><strong>Penyelesaian Pekerjaan Lapangan (Job Cards):</strong> Operator di 4 stasiun kerja mencatat jam mulai dan jam selesai pengerjaan pada kartu kerja digital Job Cards. Total waktu operasional aktual tercatat sesuai standar routing pabrik.</li>
+    <li><strong>Manufacture Stock Entry &amp; Kapitalisasi Biaya:</strong> Setelah lulus uji kendali mutu, dokumen <code>Stock Entry (Manufacture)</code> di-submit. Sistem membukukan 10 unit meja belajar fisik ke dalam <em>Gudang Barang Jadi - RF</em>, mendebet akun <code>1134 (Persediaan Barang Jadi)</code> sebesar Rp 1.780.000, mengkredit akun <code>1133 (WIP)</code> sebesar Rp 1.342.500, dan mengkredit akun penyerapan biaya <code>5211 (Biaya Tenaga Kerja Diserap)</code> serta <code>5311 (Biaya Overhead Diserap)</code> sebesar Rp 437.500.</li>
+</ol>
+
+<h2>4.5 Kasus 4: Siklus Penjualan dan Penagihan (Sales Cycle)</h2>
+<p>Siklus komersial dijalankan melalui transaksi penjualan produk jadi kepada pelanggan ritel terdaftar:</p>
+<ul>
+    <li><strong>Sales Order:</strong> CV Mebel Sejahtera menerbitkan pesanan pembelian untuk 10 unit <code>PROD-MEJA-01</code> dengan harga jual Rp 475.000 per unit (Total Nilai Transaksi Rp 4.750.000). Bagian Penjualan merekam dokumen <code>Sales Order</code> SAL-ORD-2026-00001.</li>
+    <li><strong>Surat Jalan (Delivery Note):</strong> Bagian Logistik menerbitkan <code>Delivery Note</code> MAT-DN-2026-00001. Sebanyak 10 unit meja dikeluarkan secara fisik dari <em>Gudang Barang Jadi - RF</em>. Pada momen ini, sistem ERPNext secara otomatis mengakui beban pokok penjualan: mendebet akun <code>5111 - Beban Pokok Penjualan</code> sebesar Rp 1.780.000 dan mengkredit akun <code>1134 - Persediaan Barang Jadi</code> sebesar Rp 1.780.000.</li>
+    <li><strong>Faktur Penjualan (Sales Invoice):</strong> Faktur tagihan <code>Sales Invoice</code> ACC-SINV-2026-00001 diterbitkan dengan jangka waktu pembayaran kredit 30 hari (Net 30). Sistem mendebet akun <code>1121 - Piutang Dagang Lokal</code> Rp 4.750.000 dan mengkredit akun <code>4111 - Pendapatan Penjualan Produk Jadi</code> Rp 4.750.000.</li>
+    <li><strong>Penerimaan Pembayaran (Payment Entry):</strong> CV Mebel Sejahtera melunasi tagihan penuh melalui transfer rekening bank perusahaan. Dokumen <code>Payment Entry</code> diterbitkan, mendebet <code>1114 - Bank Mandiri Operasional</code> Rp 4.750.000 dan mengkredit <code>1121 - Piutang Dagang Lokal</code> Rp 4.750.000.</li>
+</ul>
+
+<h2>4.6 Kasus 5: Analisis Laporan Keuangan, Valuasi Persediaan, dan Evaluasi Akhir</h2>
+<p>Setelah seluruh siklus manufaktur dan penjualan tuntas, laporan keuangan komprehensif dievaluasi melalui buku besar ERPNext v16:</p>
+<ol>
+    <li><strong>Laporan Laba Rugi Komprehensif (Profit and Loss Statement):</strong>
+        <ul>
+            <li>Pendapatan Penjualan Bersih: Rp 4.750.000,00</li>
+            <li>Beban Pokok Penjualan (HPP): Rp 1.780.000,00</li>
+            <li><strong>Laba Kotor (Gross Profit): Rp 2.970.000,00</strong></li>
+            <li><strong>Gross Profit Margin: 62,53%</strong> (Menunjukkan efisiensi penyerapan biaya material dan operasional yang sangat prima).</li>
+        </ul>
+    </li>
+    <li><strong>Laporan Posisi Persediaan (Stock Balance Report):</strong>
+        <ul>
+            <li>Gudang Bahan Baku: Menyimpan sisa material mentah penyangga (safety stock) kayu, pipa, dan baut.</li>
+            <li>Gudang WIP: Saldo nihil (Rp 0), menandakan seluruh material yang ditransfer ke lantai produksi telah selesai dirakit 100% tanpa adanya barang macet di lintasan.</li>
+            <li>Gudang Barang Jadi: Saldo kuantitas terbarui secara tepat sesuai mutasi penjualan.</li>
+        </ul>
+    </li>
+    <li><strong>Neraca Keuangan (Balance Sheet):</strong> Posisi aset lancar (Kas Bank dan Piutang) berada dalam keseimbangan sempurna (<em>perfectly balanced</em>) dengan ekuitas pemilik dan laba ditahan operasional.</li>
+</ol>
+
+<!-- BAB V -->
+<div class="page-break"></div>
+<h1>BAB V<br>PANDUAN STRUKTUR KODE AKUN (CHART OF ACCOUNTS) DAN MATRIKS JURNAL PERPETUAL</h1>
+
+<h2>5.1 Master Tabel Kode Akun Manufaktur Indonesia (Bagan Akun Standar 114 Akun)</h2>
+<p>Dalam sistem ERP terintegrasi, <em>Chart of Accounts (COA)</em> berfungsi sebagai tulang punggung arsitektur klasifikasi finansial. Bagan akun manufaktur yang diinjeksikan ke dalam ERPNext v16 untuk PT Rio Ferdinanda Manufaktur mengadopsi standar PSAK berbasis IFRS dengan struktur penomoran 4 dan 5 digit terstruktur.</p>
+
+<p>Struktur hierarki induk bagan akun terbagi menjadi 5 kelompok akun dasar:</p>
+<ul>
+    <li><code>1000 - ASET (ASSETS):</code> Mencakup Aset Lancar (Kas &amp; Bank, Piutang Dagang, Persediaan Bahan Baku, WIP, Barang Jadi, Kliring Persediaan) dan Aset Tetap (Peralatan Mesin Pabrik, Akumulasi Penyusutan).</li>
+    <li><code>2000 - KEWAJIBAN (LIABILITIES):</code> Mencakup Utang Dagang Pemasok, Beban Akrual, Utang Pajak PPN/PPh, dan Utang Gaji Karyawan Pabrik.</li>
+    <li><code>3000 - EKUITAS (EQUITY):</code> Mencakup Modal Saham Ditempatkan, Tambahan Modal Disetor, dan Saldo Laba Ditahan (Retained Earnings).</li>
+    <li><code>4000 - PENDAPATAN (INCOME):</code> Mencakup Pendapatan Penjualan Produk Furnitur Jadi, Diskon Penjualan, dan Retur Penjualan.</li>
+    <li><code>5000 - BEBAN POKOK PENJUALAN (COST OF GOODS SOLD):</code> Mencakup Beban Bahan Baku Langsung, Beban Tenaga Kerja Langsung, Biaya Overhead Pabrik Diserap, dan Varians Biaya Manufaktur.</li>
+    <li><code>6000 &amp; 7000 - BEBAN OPERASIONAL (OPERATING EXPENSES):</code> Beban Pemasaran, Beban Logistik &amp; Pengiriman, serta Beban Administrasi &amp; Umum.</li>
+</ul>
+
+<p>Tabel berikut menyajikan kutipan (<em>excerpt</em>) 32 akun operasional kunci yang paling sering berinteraksi langsung dengan modul Manufaktur dan Persediaan ERPNext:</p>
+
+<table>
+    <thead>
+        <tr>
+            <th style="width:12%;">Kode Akun</th>
+            <th style="width:38%;">Nama Akun Buku Besar (Account Name)</th>
+            <th style="width:25%;">Tipe Akun (Account Type)</th>
+            <th style="width:25%;">Klasifikasi Laporan Keuangan</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>1111</code></td>
+            <td>Kas Kecil Operasional Pabrik</td>
+            <td><span class="badge badge-blue">Cash</span></td>
+            <td>Aset Lancar (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>1114</code></td>
+            <td>Bank Mandiri - Rekening Operasional Pabrik</td>
+            <td><span class="badge badge-blue">Bank</span></td>
+            <td>Aset Lancar (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>1121</code></td>
+            <td>Piutang Dagang Lokal</td>
+            <td><span class="badge badge-blue">Receivable</span></td>
+            <td>Aset Lancar (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>1131</code></td>
+            <td>Persediaan Bahan Baku Utama</td>
+            <td><span class="badge badge-blue">Stock</span></td>
+            <td>Aset Lancar (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>1132</code></td>
+            <td>Persediaan Bahan Penolong &amp; Habis Pakai</td>
+            <td><span class="badge badge-blue">Stock</span></td>
+            <td>Aset Lancar (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>1133</code></td>
+            <td>Persediaan Barang Dalam Proses (WIP)</td>
+            <td><span class="badge badge-blue">Stock</span></td>
+            <td>Aset Lancar (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>1134</code></td>
+            <td>Persediaan Barang Jadi (Finished Goods)</td>
+            <td><span class="badge badge-blue">Stock</span></td>
+            <td>Aset Lancar (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>1135</code></td>
+            <td>Persediaan Barang Scrap / Daur Ulang</td>
+            <td><span class="badge badge-blue">Stock</span></td>
+            <td>Aset Lancar (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>1136</code></td>
+            <td>Stock Received But Not Billed (Kliring Penerimaan)</td>
+            <td><span class="badge badge-purple">Stock Clearing</span></td>
+            <td>Kewajiban Lancar Sementara (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>1510</code></td>
+            <td>Mesin Potong, Las, dan Peralatan Pabrik</td>
+            <td><span class="badge badge-blue">Fixed Asset</span></td>
+            <td>Aset Tidak Lancar (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>1519</code></td>
+            <td>Akumulasi Penyusutan Mesin Pabrik</td>
+            <td><span class="badge badge-blue">Accumulated Depr.</span></td>
+            <td>Kontra Aset Tetap (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>2111</code></td>
+            <td>Utang Dagang Pemasok Lokal</td>
+            <td><span class="badge badge-purple">Payable</span></td>
+            <td>Kewajiban Jangka Pendek (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>2121</code></td>
+            <td>Utang Gaji &amp; Upah Operator Pabrik</td>
+            <td><span class="badge badge-purple">Accrued Expense</span></td>
+            <td>Kewajiban Jangka Pendek (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>2131</code></td>
+            <td>Utang PPN Keluaran</td>
+            <td><span class="badge badge-purple">Tax</span></td>
+            <td>Kewajiban Jangka Pendek (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>3110</code></td>
+            <td>Modal Saham Disetor Rio Ferdinanda</td>
+            <td><span class="badge badge-green">Equity</span></td>
+            <td>Ekuitas Pemilik (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>3210</code></td>
+            <td>Laba Ditahan (Retained Earnings)</td>
+            <td><span class="badge badge-green">Equity</span></td>
+            <td>Ekuitas Pemilik (Neraca)</td>
+        </tr>
+        <tr>
+            <td><code>4111</code></td>
+            <td>Pendapatan Penjualan Produk Meja Minimalis</td>
+            <td><span class="badge badge-green">Income</span></td>
+            <td>Pendapatan Usaha (Laba Rugi)</td>
+        </tr>
+        <tr>
+            <td><code>4112</code></td>
+            <td>Pendapatan Penjualan Produk Rak Industrial</td>
+            <td><span class="badge badge-green">Income</span></td>
+            <td>Pendapatan Usaha (Laba Rugi)</td>
+        </tr>
+        <tr>
+            <td><code>4191</code></td>
+            <td>Diskon &amp; Potongan Penjualan Tunai</td>
+            <td><span class="badge badge-green">Income (Contra)</span></td>
+            <td>Kontra Pendapatan (Laba Rugi)</td>
+        </tr>
+        <tr>
+            <td><code>5111</code></td>
+            <td>Beban Pokok Penjualan - Meja Minimalis</td>
+            <td><span class="badge badge-purple">Cost of Goods Sold</span></td>
+            <td>Beban Pokok Penjualan (Laba Rugi)</td>
+        </tr>
+        <tr>
+            <td><code>5112</code></td>
+            <td>Beban Pokok Penjualan - Rak Industrial</td>
+            <td><span class="badge badge-purple">Cost of Goods Sold</span></td>
+            <td>Beban Pokok Penjualan (Laba Rugi)</td>
+        </tr>
+        <tr>
+            <td><code>5211</code></td>
+            <td>Biaya Tenaga Kerja Langsung Diserap</td>
+            <td><span class="badge badge-purple">Expense Absorption</span></td>
+            <td>Kontra Beban Pabrikasi (Laba Rugi)</td>
+        </tr>
+        <tr>
+            <td><code>5311</code></td>
+            <td>Biaya Overhead Pabrik Diserap (FOH Absorbed)</td>
+            <td><span class="badge badge-purple">Expense Absorption</span></td>
+            <td>Kontra Beban Pabrikasi (Laba Rugi)</td>
+        </tr>
+        <tr>
+            <td><code>6111</code></td>
+            <td>Beban Pemeliharaan &amp; Listrik Mesin Pabrik</td>
+            <td><span class="badge badge-purple">Expense</span></td>
+            <td>Beban Operasional Pabrik</td>
+        </tr>
+        <tr>
+            <td><code>7111</code></td>
+            <td>Beban Pengiriman dan Angkut Penjualan</td>
+            <td><span class="badge badge-purple">Expense</span></td>
+            <td>Beban Pemasaran (Laba Rugi)</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>5.2 Matriks Alur Jurnal Otomatis ERPNext (Perpetual Inventory Engine)</h2>
+<p>Dalam metode persediaan perpetual di ERPNext, setiap peristiwa bisnis (business event) secara otomatis diterjemahkan menjadi ayat jurnal ganda (double-entry transaction). Matriks berikut merangkum 9 alur transaksi fundamental dalam industri perakitan terintegrasi:</p>
+
+<table>
+    <thead>
+        <tr>
+            <th style="width:5%;">No</th>
+            <th style="width:20%;">Dokumen Pemicu</th>
+            <th style="width:25%;">Akun Didebet (D)</th>
+            <th style="width:25%;">Akun Dikredit (K)</th>
+            <th style="width:25%;">Substansi Analisis Akuntansi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="text-center">1</td>
+            <td><strong>Purchase Receipt</strong><br><em>(Penerimaan Barang)</em></td>
+            <td><code>1131 - Persd. Bahan Baku</code></td>
+            <td><code>1136 - Stock Rec. Not Billed</code></td>
+            <td>Aset fisik material bertambah di gudang bahan baku; utang akrual sementara diakui sebelum invoice terbit.</td>
+        </tr>
+        <tr>
+            <td class="text-center">2</td>
+            <td><strong>Purchase Invoice</strong><br><em>(Faktur Pemasok)</em></td>
+            <td><code>1136 - Stock Rec. Not Billed</code><br><code>1151 - PPN Masukan (bila ada)</code></td>
+            <td><code>2111 - Utang Dagang Pemasok</code></td>
+            <td>Menutup akun kliring persediaan dan mengakui kewajiban utang dagang definitif yang wajib dibayar ke supplier.</td>
+        </tr>
+        <tr>
+            <td class="text-center">3</td>
+            <td><strong>Payment Entry (Vendor)</strong><br><em>(Pelunasan Utang)</em></td>
+            <td><code>2111 - Utang Dagang Pemasok</code></td>
+            <td><code>1114 - Bank Mandiri Operasional</code></td>
+            <td>Pelunasan liabilitas utang dagang yang mengurangi saldo kas/bank di neraca.</td>
+        </tr>
+        <tr>
+            <td class="text-center">4</td>
+            <td><strong>Stock Entry (Transfer)</strong><br><em>(Bahan Baku ke WIP)</em></td>
+            <td><code>1133 - Persd. WIP Produksi</code></td>
+            <td><code>1131 - Persd. Bahan Baku</code></td>
+            <td>Reklasifikasi aset persediaan internal: bahan mentah dikeluarkan dari gudang penyimpanan menuju lini perakitan aktif.</td>
+        </tr>
+        <tr>
+            <td class="text-center">5</td>
+            <td><strong>Stock Entry (Manufacture)</strong><br><em>(Penyelesaian Perakitan)</em></td>
+            <td><code>1134 - Persd. Barang Jadi</code></td>
+            <td><code>1133 - Persd. WIP Produksi</code><br><code>5211 - BTKL Diserap</code><br><code>5311 - BOP Diserap</code></td>
+            <td>Pengakuan produk jadi siap jual dengan mengkapitalisasi seluruh konsumsi material WIP ditambah biaya konversi (tenaga kerja &amp; mesin).</td>
+        </tr>
+        <tr>
+            <td class="text-center">6</td>
+            <td><strong>Stock Entry (Scrap)</strong><br><em>(Pemisahan Limbah)</em></td>
+            <td><code>1135 - Persd. Scrap / Daur Ulang</code></td>
+            <td><code>1133 - Persd. WIP Produksi</code></td>
+            <td>Pengakuan nilai sisa limbah potongan kayu/besi yang dapat didaur ulang atau dijual kembali.</td>
+        </tr>
+        <tr>
+            <td class="text-center">7</td>
+            <td><strong>Delivery Note</strong><br><em>(Pengiriman Barang)</em></td>
+            <td><code>5111 - Beban Pokok Penjualan</code></td>
+            <td><code>1134 - Persd. Barang Jadi</code></td>
+            <td>Pengakuan beban HPP pada laporan laba rugi secara bersamaan saat persediaan fisik diserahkan kepada pembeli (prinsip matching cost).</td>
+        </tr>
+        <tr>
+            <td class="text-center">8</td>
+            <td><strong>Sales Invoice</strong><br><em>(Faktur Penjualan)</em></td>
+            <td><code>1121 - Piutang Dagang Lokal</code></td>
+            <td><code>4111 - Pendapatan Penjualan</code><br><code>2131 - Utang PPN Keluaran</code></td>
+            <td>Pengakuan hak klaim piutang usaha dan pengakuan pendapatan penjualan secara akrual.</td>
+        </tr>
+        <tr>
+            <td class="text-center">9</td>
+            <td><strong>Payment Entry (Customer)</strong><br><em>(Penerimaan Pelunasan)</em></td>
+            <td><code>1114 - Bank Mandiri Operasional</code></td>
+            <td><code>1121 - Piutang Dagang Lokal</code></td>
+            <td>Realisasi kas masuk dari pelanggan yang menghapus saldo piutang dagang di buku pembantu.</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- BAB VI -->
+<div class="page-break"></div>
+<h1>BAB VI<br>5 LATIHAN SOAL PRAKTIKUM &amp; PEMBAHASAN LENGKAP KASUS MANUFAKTUR</h1>
+
+<p>Guna menguji penguasaan analitis praktikan terhadap logika sistem informasi akuntansi dan perlakuan jurnal perpetual pada ERPNext v16, berikut disajikan 5 soal kasus praktikum kuantitatif beserta pembahasan perhitungan matematis dan pembukuan jurnal buku besar secara mendalam:</p>
+
+<h2>6.1 Soal Kasus 1: Pengadaan Bahan Baku &amp; Akrual Utang (Stock Received Not Billed)</h2>
+<div class="callout">
+<strong>Kasus:</strong> Pada tanggal 10 Oktober 2026, PT Rio Ferdinanda Manufaktur menerbitkan Purchase Order (PO-00101) kepada CV Kayu Lestari Abadi untuk pembelian 40 lembar papan kayu solid jati belanda @ Rp 45.000 (Total Rp 1.800.000). Pada tanggal 12 Oktober 2026, kayu tiba di Gudang Bahan Baku dan diterbitkan Purchase Receipt (MAT-PRE-2026-00010). Faktur resmi tagihan dari vendor baru diterima pada tanggal 18 Oktober 2026 (ACC-PINV-2026-00010).<br>
+<strong>Instruksi:</strong> Hitung nilai transaksi dan susunlah seluruh ayat jurnal buku besar yang dibukukan oleh ERPNext pada tanggal 12 Oktober dan 18 Oktober 2026!
+</div>
+
+<p><strong>Pembahasan dan Kunci Jawaban:</strong></p>
+<ol>
+    <li><em>Kalkulasi Nilai Pengadaan:</em> 40 Lembar x Rp 45.000/Lembar = <strong>Rp 1.800.000,00</strong>.</li>
+    <li><em>Pencatatan pada Tanggal 12 Oktober 2026 (Penerbitan Purchase Receipt):</em><br>
+    Saat barang diterima secara fisik namun faktur belum terbit, ERPNext mencatat akrual persediaan:
+    <table style="width:85%; margin:4pt auto;">
+        <tr style="background-color:#eef5fb; font-weight:bold;">
+            <td>Akun Perkiraan</td><td class="text-right">Debet (IDR)</td><td class="text-right">Kredit (IDR)</td>
+        </tr>
+        <tr><td>(D) 1131 - Persediaan Bahan Baku Utama</td><td class="text-right">Rp 1.800.000</td><td class="text-right">-</td></tr>
+        <tr><td>(K) 1136 - Stock Received But Not Billed</td><td class="text-right">-</td><td class="text-right">Rp 1.800.000</td></tr>
+    </table>
+    </li>
+    <li><em>Pencatatan pada Tanggal 18 Oktober 2026 (Penerbitan Purchase Invoice):</em><br>
+    Saat tagihan vendor diterima, akun kliring 1136 ditutup dan diakui sebagai utang dagang resmi:
+    <table style="width:85%; margin:4pt auto;">
+        <tr style="background-color:#eef5fb; font-weight:bold;">
+            <td>Akun Perkiraan</td><td class="text-right">Debet (IDR)</td><td class="text-right">Kredit (IDR)</td>
+        </tr>
+        <tr><td>(D) 1136 - Stock Received But Not Billed</td><td class="text-right">Rp 1.800.000</td><td class="text-right">-</td></tr>
+        <tr><td>(K) 2111 - Utang Dagang Pemasok</td><td class="text-right">-</td><td class="text-right">Rp 1.800.000</td></tr>
+    </table>
+    </li>
+</ol>
+
+<h2>6.2 Soal Kasus 2: Perhitungan Biaya Standar &amp; Formula BOM Multi-Level</h2>
+<div class="callout">
+<strong>Kasus:</strong> Tim R&amp;D merancang produk baru yaitu <em>Rak Buku Sudut Industrial RF-200 (PROD-RAK-01)</em>. Satu unit rak buku membutuhkan bahan baku langsung: 2 papan kayu jati belanda (@ Rp 45.000), 1 batang pipa hollow (@ Rp 65.000), 12 buah baut sekrup (@ Rp 1.500), 0.3 kaleng cat duco (@ Rp 85.000), dan 1 lembar amplas (@ Rp 3.500). Routing pengerjaan membutuhkan: Stasiun Potong (20 menit @ Rp 35.000/jam), Stasiun Las (30 menit @ Rp 45.000/jam), dan Stasiun Finishing (15 menit @ Rp 40.000/jam).<br>
+<strong>Instruksi:</strong> Hitunglah rincian total Direct Material, Direct Labor &amp; FOH (Biaya Konversi), dan tentukan Harga Pokok Produksi (HPP) standar per unit di modul Bill of Materials (BOM)!
+</div>
+
+<p><strong>Pembahasan dan Kunci Jawaban:</strong></p>
+<ol>
+    <li><em>Biaya Bahan Baku Langsung (Direct Material):</em>
+        <ul>
+            <li>Papan Kayu: 2 x Rp 45.000 = Rp 90.000</li>
+            <li>Pipa Hollow: 1 x Rp 65.000 = Rp 65.000</li>
+            <li>Baut Sekrup: 12 x Rp 1.500 = Rp 18.000</li>
+            <li>Cat Duco: 0.3 x Rp 85.000 = Rp 25.500</li>
+            <li>Kertas Amplas: 1 x Rp 3.500 = Rp 3.500</li>
+            <li><strong>Total Direct Material = Rp 202.000,00</strong></li>
+        </ul>
+    </li>
+    <li><em>Biaya Operasi Konversi (Direct Labor &amp; Factory Overhead):</em>
+        <ul>
+            <li>Stasiun Potong: (20 / 60) jam x Rp 35.000 = Rp 11.666,67</li>
+            <li>Stasiun Las: (30 / 60) jam x Rp 45.000 = Rp 22.500,00</li>
+            <li>Stasiun Finishing: (15 / 60) jam x Rp 40.000 = Rp 10.000,00</li>
+            <li><strong>Total Biaya Konversi Operasional = Rp 44.166,67</strong></li>
+        </ul>
+    </li>
+    <li><em>Total Harga Pokok Produksi Standar (BOM Unit Cost):</em><br>
+        <strong>HPP Standar = Rp 202.000,00 + Rp 44.166,67 = Rp 246.166,67 per unit</strong>.
+    </li>
+</ol>
+
+<h2>6.3 Soal Kasus 3: Alokasi Biaya Tenaga Kerja &amp; Overhead Pabrik pada Stock Entry</h2>
+<div class="callout">
+<strong>Kasus:</strong> PT Rio Ferdinanda Manufaktur menerbitkan Work Order untuk memproduksi 10 unit Meja Belajar Minimalis RF-100. Biaya bahan baku yang ditransfer dari gudang bahan baku ke WIP adalah Rp 1.342.500. Biaya operasi stasiun kerja aktual yang dialokasikan ke pengerjaan adalah Rp 437.500 (terdiri dari BTKL Rp 250.000 dan BOP Rp 187.500). Seluruh 10 unit meja selesai dirakit 100% dan dipindahkan ke Gudang Barang Jadi.<br>
+<strong>Instruksi:</strong> Buatlah ayat jurnal penyerapan biaya manufaktur yang dibukukan secara otomatis oleh dokumen Stock Entry Type Manufacture di ERPNext!
+</div>
+
+<p><strong>Pembahasan dan Kunci Jawaban:</strong></p>
+<p>Saat dokumen Stock Entry (Manufacture) di-submit, sistem mengkapitalisasi seluruh biaya bahan baku dan biaya konversi ke dalam aset persediaan produk jadi:</p>
+<table style="width:90%; margin:4pt auto;">
+    <tr style="background-color:#eef5fb; font-weight:bold;">
+        <td>Akun Perkiraan Buku Besar</td><td class="text-right">Debet (IDR)</td><td class="text-right">Kredit (IDR)</td>
+    </tr>
+    <tr><td>(D) 1134 - Persediaan Barang Jadi (Finished Goods)</td><td class="text-right">Rp 1.780.000</td><td class="text-right">-</td></tr>
+    <tr><td>(K) 1133 - Persediaan Barang Dalam Proses (WIP)</td><td class="text-right">-</td><td class="text-right">Rp 1.342.500</td></tr>
+    <tr><td>(K) 5211 - Biaya Tenaga Kerja Langsung Diserap</td><td class="text-right">-</td><td class="text-right">Rp 250.000</td></tr>
+    <tr><td>(K) 5311 - Biaya Overhead Pabrik Diserap</td><td class="text-right">-</td><td class="text-right">Rp 187.500</td></tr>
+</table>
+<p class="no-indent"><em>Analisis Akuntansi:</em> Saldo akun persediaan WIP di neraca kembali menjadi nol (habis terserap), sementara nilai persediaan barang jadi mencerminkan biaya perolehan penuh (<em>full absorption costing</em>) sebesar Rp 178.000 per unit.</p>
+
+<h2>6.4 Soal Kasus 4: Penjualan Kredit, Pengakuan HPP, dan Pengakuan Piutang Usaha</h2>
+<div class="callout">
+<strong>Kasus:</strong> Pada tanggal 22 Oktober 2026, PT Rio Ferdinanda Manufaktur mengirimkan 8 unit Meja Belajar Minimalis kepada Toko Furnitur Indah Abadi via Delivery Note. Harga jual ditetapkan Rp 475.000 per unit (Total Nilai Penjualan Rp 3.800.000), dengan HPP perolehan Rp 178.000 per unit (Total HPP Rp 1.424.000). Pada tanggal yang sama, diterbitkan Sales Invoice dengan termin pembayaran kredit 30 hari.<br>
+<strong>Instruksi:</strong> Buatlah ayat jurnal berpasangan yang terbentuk pada Delivery Note dan Sales Invoice, serta hitunglah Laba Kotor dan Gross Profit Margin dari transaksi tersebut!
+</div>
+
+<p><strong>Pembahasan dan Kunci Jawaban:</strong></p>
+<ol>
+    <li><em>Jurnal pada Delivery Note (Pengeluaran Barang Fisik &amp; Beban HPP):</em>
+    <table style="width:85%; margin:4pt auto;">
+        <tr style="background-color:#eef5fb; font-weight:bold;">
+            <td>Akun Perkiraan</td><td class="text-right">Debet (IDR)</td><td class="text-right">Kredit (IDR)</td>
+        </tr>
+        <tr><td>(D) 5111 - Beban Pokok Penjualan (HPP)</td><td class="text-right">Rp 1.424.000</td><td class="text-right">-</td></tr>
+        <tr><td>(K) 1134 - Persediaan Barang Jadi</td><td class="text-right">-</td><td class="text-right">Rp 1.424.000</td></tr>
+    </table>
+    </li>
+    <li><em>Jurnal pada Sales Invoice (Pengakuan Piutang &amp; Pendapatan Penjualan):</em>
+    <table style="width:85%; margin:4pt auto;">
+        <tr style="background-color:#eef5fb; font-weight:bold;">
+            <td>Akun Perkiraan</td><td class="text-right">Debet (IDR)</td><td class="text-right">Kredit (IDR)</td>
+        </tr>
+        <tr><td>(D) 1121 - Piutang Dagang Lokal</td><td class="text-right">Rp 3.800.000</td><td class="text-right">-</td></tr>
+        <tr><td>(K) 4111 - Pendapatan Penjualan Produk Meja</td><td class="text-right">-</td><td class="text-right">Rp 3.800.000</td></tr>
+    </table>
+    </li>
+    <li><em>Perhitungan Laba Kotor &amp; Margin:</em>
+        <ul>
+            <li>Laba Kotor (Gross Profit) = Rp 3.800.000 - Rp 1.424.000 = <strong>Rp 2.376.000,00</strong></li>
+            <li>Gross Profit Margin = (Rp 2.376.000 / Rp 3.800.000) x 100% = <strong>62,53%</strong>.</li>
+        </ul>
+    </li>
+</ol>
+
+<h2>6.5 Soal Kasus 5: Pelunasan Piutang, Pembayaran Vendor, dan Rekonsiliasi Kas/Bank</h2>
+<div class="callout">
+<strong>Kasus:</strong> Pada tanggal 28 Oktober 2026, Toko Furnitur Indah Abadi melunasi seluruh piutangnya sebesar Rp 3.800.000 melalui transfer ke rekening Bank Mandiri perusahaan. Pada hari yang sama, bagian keuangan membayar utang kepada PT Baja Logam Nusantara sebesar Rp 1.300.000 melalui transfer bank yang dikenakan biaya administrasi transfer antar-bank sebesar Rp 6.500.<br>
+<strong>Instruksi:</strong> Buatlah ayat jurnal buku besar yang dibukukan oleh dokumen Payment Entry untuk masing-masing transaksi tersebut!
+</div>
+
+<p><strong>Pembahasan dan Kunci Jawaban:</strong></p>
+<ol>
+    <li><em>Jurnal Penerimaan Kas Pelunasan Piutang Konsumen (Payment Entry Receive):</em>
+    <table style="width:85%; margin:4pt auto;">
+        <tr style="background-color:#eef5fb; font-weight:bold;">
+            <td>Akun Perkiraan</td><td class="text-right">Debet (IDR)</td><td class="text-right">Kredit (IDR)</td>
+        </tr>
+        <tr><td>(D) 1114 - Bank Mandiri Operasional</td><td class="text-right">Rp 3.800.000</td><td class="text-right">-</td></tr>
+        <tr><td>(K) 1121 - Piutang Dagang Lokal</td><td class="text-right">-</td><td class="text-right">Rp 3.800.000</td></tr>
+    </table>
+    </li>
+    <li><em>Jurnal Pengeluaran Kas Pembayaran Vendor &amp; Biaya Administrasi (Payment Entry Pay):</em>
+    <table style="width:85%; margin:4pt auto;">
+        <tr style="background-color:#eef5fb; font-weight:bold;">
+            <td>Akun Perkiraan</td><td class="text-right">Debet (IDR)</td><td class="text-right">Kredit (IDR)</td>
+        </tr>
+        <tr><td>(D) 2111 - Utang Dagang Pemasok</td><td class="text-right">Rp 1.300.000</td><td class="text-right">-</td></tr>
+        <tr><td>(D) 7119 - Beban Administrasi Bank</td><td class="text-right">Rp 6.500</td><td class="text-right">-</td></tr>
+        <tr><td>(K) 1114 - Bank Mandiri Operasional</td><td class="text-right">-</td><td class="text-right">Rp 1.306.500</td></tr>
+    </table>
+    </li>
+    <li><em>Dampak terhadap Likuiditas:</em> Saldo rekening Bank Mandiri bertambah secara neto sebesar Rp 2.493.500 (Rp 3.800.000 - Rp 1.306.500), memperkuat rasio kas lancar perusahaan.</li>
+</ol>
+
+<!-- BAB VII -->
+<div class="page-break"></div>
+<h1>BAB VII<br>TUTORIAL OPERASIONAL LANGKAH DEMI LANGKAH (STEP-BY-STEP DOCKER &amp; ANTIGRAVITY)</h1>
+
+<p>Bab ini menyajikan panduan tutorial operasional langkah demi langkah (18 langkah praktis) yang mendokumentasikan pelaksanaan riil praktikum terintegrasi menggunakan perantara Google Antigravity IDE, Docker Desktop (WSL2), dan ERPNext v16:</p>
+
+<h3>Langkah 1: Pengunduhan dan Penyiapan Docker Desktop (WSL2)</h3>
+<p>Pengoperasian ERPNext secara andal membutuhkan platform virtualisasi kontainer. Praktikan mengunduh installer resmi Docker Desktop for Windows, mengaktifkan fitur WSL 2 backend, dan melakukan restart sistem. Buka dasbor Docker Desktop dan pastikan indikator di sudut kiri bawah telah berwarna hijau menyala dengan status <strong>"Engine running"</strong>.</p>
+
+<h3>Langkah 2: Mengatasi Kendala Inisialisasi Engine Docker &amp; Verifikasi Layanan</h3>
+<p>Jika Docker daemon mengalami kendala pengaktifan atau terhenti (stopped), gunakan terminal PowerShell untuk memeriksa status subsistem WSL: <code>wsl --status</code> atau jalankan kembali daemon Docker. Pastikan isolasi resource memori telah dialokasikan minimal 4 GB RAM pada file <code>.wslconfig</code> agar proses kompilasi Frappe berjalan lancar.</p>
+
+<h3>Langkah 3: Menyiapkan Google Antigravity IDE &amp; Menautkan Workspace Lokal</h3>
+<p>Buka Google Antigravity IDE. Buat workspace proyek baru atau tautkan direktori kerja lokal ke folder praktikum: <code>C:\Users\Windows 10\.gemini\antigravity\scratch\ERP_Rio Ferdinanda</code>. Pastikan seluruh berkas dataset CSV dan panduan tersimpan dalam direktori tersebut.</p>
+
+<h3>Langkah 4: Pengecekan Ketersediaan ERPNext di Laptop via AI Agent</h3>
+<p>Kirimkan prompt konsultasi awal kepada asisten cerdas Google Antigravity:</p>
+<div class="prompt-box">
+&gt; "Apakah ERPNext sudah terinstal di laptop ini? Jika belum instalkan, untuk nama folder datasetnya ERP_Rio Ferdinanda"
+</div>
+<p class="no-indent">Antigravity melakukan audit sistem melalui perintah <code>docker ps</code>, mendeteksi stack <code>frappe_docker</code>, dan melaporkan kesiapan kontainer backend, db, redis, serta memunculkan tautan port akses frontend.</p>
+
+<h3>Langkah 5: Mengakses Halaman Awal Setup Wizard di Browser</h3>
+<p>Buka peramban web Google Chrome atau Microsoft Edge, arahkan ke alamat <code>http://localhost:8080</code> (atau <code>http://localhost:8081</code>). Masuk menggunakan kredensial default: Username <code>Administrator</code> dan Password <code>admin</code>.</p>
+
+<h3>Langkah 6: Mengonfigurasi Parameter Awal Entitas Bisnis PT Rio Ferdinanda Manufaktur</h3>
+<p>Pada formulir Setup Wizard, tentukan preferensi sistem: Bahasa Indonesia / English, Negara Indonesia, Mata Uang IDR (Rupiah), Zona Waktu Asia/Jakarta, dan Nama Perusahaan: <strong>PT Rio Ferdinanda Manufaktur</strong> dengan sektor industri <strong>Manufacturing</strong>.</p>
+
+<h3>Langkah 7: Inisialisasi Basis Data MariaDB &amp; Akses Desk GUI</h3>
+<p>Tunggu beberapa saat ketika Frappe Framework mengeksekusi migrasi skema tabel MariaDB hingga muncul tampilan dasbor meja kerja utama (Desk GUI) yang menampilkan modul Accounting, Stock, Buying, Selling, dan Manufacturing.</p>
+
+<h3>Langkah 8: Memantau Stack Kontainer pada Dasbor Docker Desktop</h3>
+<p>Buka kembali antarmuka Docker Desktop pada tab <em>Containers</em>. Periksa seluruh kontainer yang tergabung dalam grup <code>frappe_docker</code>: kontainer <code>frappe_docker-frontend-1</code> (port 8080/8081:8080), <code>frappe_docker-backend-1</code>, <code>frappe_docker-mariadb-1</code>, dan <code>frappe_docker-redis-1</code>, pastikan semuanya berstatus hijau (<em>Running</em>).</p>
+
+<h3>Langkah 9: Verifikasi Berkas Dataset CSV &amp; Panduan Praktik di Direktori Kerja</h3>
+<p>Pastikan seluruh berkas dataset CSV (Item Group, Warehouse, Item, Supplier, Customer, Workstation, Operation, BOM, dan Opening Stock) telah tersusun rapi di folder kerja lokal <code>C:\Users\Windows 10\.gemini\antigravity\scratch\ERP_Rio Ferdinanda\</code>.</p>
+
+<h3>Langkah 10: Konversi Panduan Praktik ke Format Microsoft Word (.docx)</h3>
+<p>Kirimkan prompt konversi kepada AI Agent:</p>
+<div class="prompt-box">
+&gt; "Konversikan file md menjadi file docx"
+</div>
+<p class="no-indent">Antigravity mengeksekusi otomasi Word COM / Pandoc untuk menghasilkan <code>Panduan_Praktik_ERPNext_Manufaktur.docx</code> dengan format tipografi perkantoran standar.</p>
+
+<h3>Langkah 11: Menerapkan Strict Approval Prompting untuk Tata Kelola Bertahap</h3>
+<p>Tetapkan instruksi tata kelola kontrol manusia (Human-in-the-Loop) dengan memberikan prompt:</p>
+<div class="prompt-box">
+&gt; "Jalankan sesuai panduan yang anda buat secara urut dan bertahap, serta anda harus meminta ijin ke saya bila mau menjalankan tahap demi tahap selanjutnya"
+</div>
+<p class="no-indent">AI Agent mengonfirmasi kepatuhan terhadap protokol otorisasi bertahap.</p>
+
+<h3>Langkah 12: Eksekusi Tahap 1 - Setup Master Data (Gudang, Item, Supplier, Customer)</h3>
+<p>Praktikan memberikan perintah persetujuan: <code>"Silahkan jalankan tahap 1"</code>. AI Agent mengeksekusi skrip injeksi data master melalui perantara backend Frappe, mendaftarkan grup barang, gudang (Bahan Baku, WIP, Barang Jadi), katalog item kayu, pipa, baut, cat, meja jadi, serta entitas supplier dan customer ke basis data MariaDB.</p>
+
+<h3>Langkah 13: Pembuatan Diagram Alir Persediaan Multi-Gudang (Flowchart)</h3>
+<p>Sebelum melangkah ke tahap produksi fisik, praktikan meminta pembuatan visualisasi alur persediaan:</p>
+<div class="prompt-box">
+&gt; "Buat flowchart untuk sistem persediaan di ERPNext ini, buat file dalam bentuk docx, hasil ditaruh di folder khusus"
+</div>
+
+<h3>Langkah 14: Verifikasi Diagram Alir Vektor dan Dokumen Flowchart</h3>
+<p>Antigravity menghasilkan gambar diagram alir beresolusi tinggi <code>flowchart_persediaan_erpnext.png</code> beserta dokumen analisis <code>Flowchart_Sistem_Persediaan_ERPNext.docx</code> yang menjelaskan titik kritis transfer antar-gudang dan kontrol kualitas.</p>
+
+<h3>Langkah 15: Eksekusi Tahap 2 - Setup Manufaktur (Workstation, Operation, BOM)</h3>
+<p>Setelah praktikan memberikan izin <code>"Silahkan jalankan tahap 2"</code>, AI Agent mendaftarkan 4 stasiun kerja (WS-POTONG, WS-LAS, WS-CAT, WS-RAKIT) beserta tarif biaya per jam, rute operasi pabrikasi, serta formula resep Bill of Materials (BOM) lengkap dengan routing stasiun kerja untuk <code>PROD-MEJA-01</code>.</p>
+
+<h3>Langkah 16: Eksekusi Tahap 3 - Input Saldo Awal Persediaan Gudang (Stock Entry)</h3>
+<p>Praktikan menginstruksikan <code>"Silahkan jalankan tahap 3"</code>. Sistem memposting dokumen <code>Stock Entry (Material Receipt)</code> untuk memasukkan saldo awal bahan baku kayu solid, pipa hollow, baut, cat, karet kaki, dan amplas ke dalam <em>Gudang Bahan Baku - RF</em>. Praktikan memverifikasi penambahan stok di modul <strong>Stock &gt; Stock Balance</strong>.</p>
+
+<h3>Langkah 17: Eksekusi Tahap 4 - Siklus Produksi (Work Order, Transfer WIP, Job Cards, Manufacture)</h3>
+<p>Praktikan memberikan izin <code>"Silahkan jalankan tahap 4"</code>. AI Agent menerbitkan <code>Sales Order</code> untuk 10 unit meja, membuat <code>Work Order</code>, mengeksekusi <code>Stock Entry (Material Transfer for Manufacture)</code> dari Gudang Bahan Baku ke WIP, menuntaskan seluruh tiket kerja <code>Job Cards</code> di 4 stasiun kerja, dan memposting <code>Stock Entry (Manufacture)</code>. Sebanyak 10 unit Meja Belajar Minimalis RF-100 resmi selesai dirakit dan tersimpan di <em>Gudang Barang Jadi - RF</em>.</p>
+
+<h3>Langkah 18: Eksekusi Tahap 5 &amp; 6 - Penjualan, Pengiriman, Penagihan, dan Audit Laporan Finansial</h3>
+<p>Praktikan menginstruksikan penyelesaian tahap akhir: <code>"Silahkan jalankan tahap 5"</code> dan <code>"Silahkan jalankan tahap 6"</code>. Sistem menerbitkan surat jalan <code>Delivery Note</code> (stok barang jadi berkurang dan HPP diakui), menerbitkan faktur <code>Sales Invoice</code>, membukukan pelunasan kas <code>Payment Entry</code>, dan menghasilkan ringkasan Laporan Laba Rugi serta Neraca yang seimbang secara sempurna.</p>
+
+<!-- BAB VIII -->
+<div class="page-break"></div>
+<h1>BAB VIII<br>STANDAR OPERASIONAL PROSEDUR (SOP), ANALISIS SWOT, DAN KESIMPULAN</h1>
+
+<h2>8.1 SOP 9 Langkah Praktikum Manufaktur ERPNext</h2>
+<p>Seluruh praktikan Program Studi Akuntansi FEB Universitas Diponegoro diwajibkan mematuhi 9 Standar Operasional Prosedur (SOP) baku dalam pelaksanaan simulasi ERPNext industri manufaktur:</p>
+<ol>
+    <li><strong>SOP-01 (Inisialisasi Infrastruktur Kontainer):</strong> Memastikan Docker Desktop aktif dengan WSL2 backend dan memverifikasi seluruh kontainer <code>frappe_docker</code> berstatus running sebelum sesi praktikum dimulai.</li>
+    <li><strong>SOP-02 (Penyelesaian Setup Wizard Profil Entitas):</strong> Melakukan konfigurasi awal nama perusahaan PT Rio Ferdinanda Manufaktur, mata uang IDR, zona waktu Asia/Jakarta, dan domain Manufacturing pada localhost.</li>
+    <li><strong>SOP-03 (Generasi Master Dataset CSV Terstruktur):</strong> Memastikan seluruh berkas master data CSV (minimal 9 file master &amp; transaksi) telah tersedia lengkap di folder direktori kerja lokal.</li>
+    <li><strong>SOP-04 (Eksekusi Pendaftaran Master Data Berjenjang):</strong> Melakukan impor data master sesuai urutan hierarki relasional (Grup Barang &amp; Gudang -&gt; Item &amp; Rekanan -&gt; Stasiun Kerja &amp; BOM) guna mencegah kegagalan foreign key.</li>
+    <li><strong>SOP-05 (Injeksi dan Pemetaan Bagan Akun Manufaktur):</strong> Mengimpor dan menautkan bagan akun standar Indonesia (114 akun) ke dalam master pengaturan default Company ERPNext.</li>
+    <li><strong>SOP-06 (Siklus Pengadaan Material &amp; Kliring Akrual):</strong> Mencatat pesanan pembelian (PO), penerimaan barang gudang (Purchase Receipt), dan faktur tagihan (Purchase Invoice) dengan mematuhi akun kliring 1136.</li>
+    <li><strong>SOP-07 (Perumusan Formula BOM &amp; Routing Operasi):</strong> Memastikan formula Bill of Materials mencakup seluruh material langsung, rasio takaran presisi, serta tarif stasiun kerja konversi.</li>
+    <li><strong>SOP-08 (Pengendalian Perintah Kerja &amp; Penyerapan Biaya):</strong> Mengendalikan alur Work Order mulai dari transfer bahan ke gudang WIP, penyelesaian Job Cards, hingga pemindahan barang jadi ke Finished Goods dengan absorpsi biaya penuh.</li>
+    <li><strong>SOP-09 (Fulfillment Penjualan, Penagihan &amp; Audit Finansial):</strong> Menuntaskan surat jalan Delivery Note, penagihan Sales Invoice, pencatatan pembayaran kas, serta verifikasi keseimbangan Neraca dan Laporan Laba Rugi.</li>
+</ol>
+
+<h2>8.2 Tabel Checklist Evaluasi Mandiri Praktikan</h2>
+<p>Sebelum mengumpulkan berkas laporan akhir praktikum, praktikan wajib memeriksa dan memvalidasi lembar checklist mandiri berikut:</p>
+
+<table>
+    <thead>
+        <tr>
+            <th style="width:8%;">No</th>
+            <th style="width:30%;">Objek Penilaian / Aktivitas</th>
+            <th style="width:42%;">Parameter &amp; Indikator Keberhasilan</th>
+            <th style="width:20%;">Status Validasi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="text-center">1</td>
+            <td>Infrastruktur Docker &amp; Antigravity</td>
+            <td>Kontainer frontend, backend, mariadb aktif di port 8080/8081.</td>
+            <td class="text-center"><span class="badge badge-green">[✔] Terverifikasi</span></td>
+        </tr>
+        <tr>
+            <td class="text-center">2</td>
+            <td>Setup Wizard Profil Perusahaan</td>
+            <td>Entitas 'PT Rio Ferdinanda Manufaktur' terdaftar dengan mata uang IDR.</td>
+            <td class="text-center"><span class="badge badge-green">[✔] Terverifikasi</span></td>
+        </tr>
+        <tr>
+            <td class="text-center">3</td>
+            <td>Generasi Master Dataset CSV</td>
+            <td>Seluruh berkas CSV tersusun rapi di folder ERP_Rio Ferdinanda.</td>
+            <td class="text-center"><span class="badge badge-green">[✔] Terverifikasi</span></td>
+        </tr>
+        <tr>
+            <td class="text-center">4</td>
+            <td>Pendaftaran Item &amp; Gudang</td>
+            <td>Item Meja, Kayu, Pipa, Baut serta 3 Gudang aktif di MariaDB.</td>
+            <td class="text-center"><span class="badge badge-green">[✔] Terverifikasi</span></td>
+        </tr>
+        <tr>
+            <td class="text-center">5</td>
+            <td>Injeksi Bagan Akun Manufaktur</td>
+            <td>114 akun hierarkis Indonesia terintegrasi pada Chart of Accounts.</td>
+            <td class="text-center"><span class="badge badge-green">[✔] Terverifikasi</span></td>
+        </tr>
+        <tr>
+            <td class="text-center">6</td>
+            <td>Siklus Pengadaan Bahan Baku</td>
+            <td>PO, Purchase Receipt, dan Purchase Invoice tersubmit tanpa selisih.</td>
+            <td class="text-center"><span class="badge badge-green">[✔] Terverifikasi</span></td>
+        </tr>
+        <tr>
+            <td class="text-center">7</td>
+            <td>Penyusunan BOM &amp; Routing</td>
+            <td>BOM PROD-MEJA-01 aktif dengan 4 tahapan operasi stasiun kerja.</td>
+            <td class="text-center"><span class="badge badge-green">[✔] Terverifikasi</span></td>
+        </tr>
+        <tr>
+            <td class="text-center">8</td>
+            <td>Eksekusi Manufaktur Terpadu</td>
+            <td>Work Order 10 meja tuntas, stok FG bertambah, saldo WIP Rp 0.</td>
+            <td class="text-center"><span class="badge badge-green">[✔] Terverifikasi</span></td>
+        </tr>
+        <tr>
+            <td class="text-center">9</td>
+            <td>Penjualan &amp; Laporan Finansial</td>
+            <td>Omset Rp 4.750.000, Laba Kotor 62,53%, Neraca seimbang sempurna.</td>
+            <td class="text-center"><span class="badge badge-green">[✔] Terverifikasi</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>8.3 Analisis Kelebihan, Keterbatasan, dan SWOT Implementasi ERPNext</h2>
+<p>Evaluasi menyeluruh terhadap penerapan ERPNext v16 pada lingkungan perakitan manufaktur dirumuskan melalui matriks analisis SWOT:</p>
+<ul>
+    <li><strong>Strengths (Kekuatan Internal):</strong>
+        <ul>
+            <li><em>Zero License Cost:</em> Berbasis open-source bebas royalti, menghemat anggaran investasi teknologi hingga ratusan juta rupiah dibanding SAP atau Oracle.</li>
+            <li><em>Truly Integrated Monolith:</em> Modul akuntansi, inventaris, pengadaan, dan perakitan berada dalam satu basis data MariaDB tanpa memerlukan middleware API yang rapuh.</li>
+            <li><em>Automated Perpetual Engine:</em> Meniadakan kebutuhan penyesuaian periodik manual dan menghilangkan distorsi informasi antara gudang dan neraca.</li>
+        </ul>
+    </li>
+    <li><strong>Weaknesses (Kelemahan Internal):</strong>
+        <ul>
+            <li><em>Technical Overhead:</em> Menuntut pemahaman dasar mengenai manajemen kontainer Linux/WSL2 dan arsitektur Docker Compose.</li>
+            <li><em>Localization Effort:</em> Pelaporan pajak spesifik Indonesia (seperti e-Faktur PPN CSV dan bukti potong PPh Unifikasi) memerlukan modul lokalisasi pihak ketiga atau kustomisasi skrip mandiri.</li>
+        </ul>
+    </li>
+    <li><strong>Opportunities (Peluang Eksternal):</strong>
+        <ul>
+            <li><em>AI Synergy:</em> Kolaborasi antara enjin eksekusi Google Antigravity dan pusat pengetahuan Google NotebookLM membuka era baru implementasi ERP yang sangat cepat, adaptif, dan minim galat manusia.</li>
+            <li><em>Kesiapan Transformasi UMKM:</em> Solusi ini sangat ideal untuk diadopsi oleh ribuan industri manufaktur menengah dan kecil di Indonesia menuju era Industri 4.0.</li>
+        </ul>
+    </li>
+    <li><strong>Threats (Tantangan Eksternal):</strong>
+        <ul>
+            <li><em>Disiplin Input Lapangan:</em> Keberhasilan kalkulasi biaya manufaktur sangat bergantung pada kedisiplinan operator lini produksi dalam mengisi tiket kerja Job Cards dan mencatat kuantitas scrap material secara jujur.</li>
+        </ul>
+    </li>
+</ul>
+
+<h2>8.4 Kesimpulan &amp; Rekomendasi Masa Depan</h2>
+<p>Berdasarkan kajian teoritis komprehensif dan simulasi empiris end-to-end yang dilaksanakan pada PT Rio Ferdinanda Manufaktur, dapat ditarik beberapa kesimpulan pokok:</p>
+<ol>
+    <li>ERPNext v16 yang dijalankan di atas Frappe Framework dan infrastruktur kontainer Docker Desktop (WSL2) terbukti menjadi fondasi Sistem Informasi Akuntansi yang sangat tangguh, stabil, dan presisi dalam mengelola operasi manufaktur perakitan terintegrasi.</li>
+    <li>Mekanisme <em>Perpetual Inventory Engine</em> bekerja secara konsisten tanpa anomali, di mana setiap penerimaan bahan baku, mutasi ke lini kerja, penyelesaian perakitan barang jadi, dan pengiriman surat jalan ke pelanggan secara otomatis membukukan ayat jurnal berpasangan yang seimbang ke dalam buku besar.</li>
+    <li>Kinerja finansial simulasi perakitan dan penjualan 10 unit Meja Belajar Minimalis RF-100 mencatatkan pendapatan bersih Rp 4.750.000,00, HPP Rp 1.780.000,00, serta laba kotor sebesar Rp 2.970.000,00 (Gross Profit Margin 62,53%), dengan saldo persediaan barang dalam proses (WIP) terserap tuntas sebesar Rp 0 pada akhir siklus.</li>
+    <li>Penerapan mekanisme <em>Strict Approval Prompting</em> pada Google Antigravity IDE menjamin prinsip tata kelola sistem yang aman (<em>safe agentic engineering</em>), di mana pengguna manusia tetap memegang kendali penuh atas setiap manipulasi data dan eksekusi transaksi keuangan.</li>
+</ol>
+
+<!-- DAFTAR PUSTAKA -->
+<div class="page-break"></div>
+<h1>DAFTAR PUSTAKA</h1>
+
+<ul style="list-style-type:none; padding-left:0; line-height:1.7;">
+    <li style="margin-bottom:10pt; text-indent:-24pt; padding-left:24pt;">
+        Blocher, E. J., Stout, D. E., Juras, P. E., &amp; Smith, S. (2020). <em>Cost Management: A Strategic Emphasis</em> (8th ed.). New York: McGraw-Hill Education.
+    </li>
+    <li style="margin-bottom:10pt; text-indent:-24pt; padding-left:24pt;">
+        Frappe Technologies Pvt. Ltd. (2026). <em>ERPNext Documentation, User Manual, and Frappe Framework Architecture</em>. GitHub Open-Source Repository: https://github.com/frappe/erpnext.
+    </li>
+    <li style="margin-bottom:10pt; text-indent:-24pt; padding-left:24pt;">
+        Ikatan Akuntan Indonesia (IAI). (2024). <em>Standar Akuntansi Keuangan: PSAK 14 Persediaan dan PSAK 23 Pendapatan</em>. Jakarta: Dewan Standar Akuntansi Keuangan IAI.
+    </li>
+    <li style="margin-bottom:10pt; text-indent:-24pt; padding-left:24pt;">
+        Romney, M. B., &amp; Steinbart, P. J. (2021). <em>Accounting Information Systems</em> (15th ed.). Harlow: Pearson Education Limited.
+    </li>
+    <li style="margin-bottom:10pt; text-indent:-24pt; padding-left:24pt;">
+        Senviane, G. M., &amp; Dewayanto, T. (2026). <em>Panduan Pelaksanaan Praktik ERPNext: Penyelesaian Studi Kasus Manufaktur Meja Kerja Minimalis PT Griselda Manufaktur Mandiri</em>. Modul Pembelajaran Praktikum Sistem Informasi Akuntansi, Universitas Diponegoro.
+    </li>
+    <li style="margin-bottom:10pt; text-indent:-24pt; padding-left:24pt;">
+        Auliya, R. D., &amp; Dewayanto, T. (2026). <em>Buku Panduan Praktikum ERPNext &amp; Frappe Framework: Implementasi Teknologi pada Industri Manufaktur (Studi Kasus: PT Rahma Dhita Manufaktur)</em>. Departemen Akuntansi, Fakultas Ekonomika dan Bisnis, Universitas Diponegoro.
+    </li>
+    <li style="margin-bottom:10pt; text-indent:-24pt; padding-left:24pt;">
+        Weygandt, J. J., Kimmel, P. D., &amp; Kieso, D. E. (2022). <em>Financial Accounting with International Financial Reporting Standards</em> (5th ed.). Hoboken, NJ: John Wiley &amp; Sons, Inc.
+    </li>
+</ul>
+
+</body>
+</html>
