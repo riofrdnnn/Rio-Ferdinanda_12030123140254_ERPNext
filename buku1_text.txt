@@ -1,0 +1,741 @@
+
+--- [PAGE 1] ---
+BUKU PANDUAN PRAKTIKUM 
+ERPNEXT & FRAPPE FRAMEWORK 
+Implementasi Teknologi pada Industri Manufaktur 
+ERPNext, Frappe Framework, Docker Desktop, Antigravity, dan NotebookLM 
+(Studi Kasus: PT Rahma Dhita Manufaktur) 
+ 
+ 
+ 
+Penulis: 
+Rahma Dhita Auliya (12030123140278) 
+Dr. Totok Dewayanto, S.E., M.Si., Ak., CA. 
+ 
+ 
+PROGRAM STUDI AKUNTANSI  
+FAKULTAS EKONOMIKA DAN BISNIS  
+UNIVERSITAS DIPONEGORO  
+2026 
+ 
+ 
+
+
+--- [PAGE 2] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 2 
+KATA PENGANTAR 
+ 
+Puji dan syukur penulis panjatkan ke hadirat Tuhan Yang Maha Esa atas limpahan rahmat 
+dan karunia -Nya, sehingga buku panduan praktikum yang berjudul 'Buku Panduan Praktikum 
+ERPNext & Frappe Framework' ini dapat diselesaikan dengan lengkap, terstruktur, dan akurat. 
+Penerapan sistem Enterprise Resource Planning (ERP) pada sektor industri manufaktur 
+saat ini membutuhkan pemahaman yang seimbang antara pengelolaan infrastruktur komputasi dan 
+implementasi transaksi bisnis. Melalui integrasi sinergis empat teknologi utama,  yaitu ERPNext 
+v16 sebagai sistem ERP enterprise open -source, Frappe Framework sebagai arsitektur aplikasi 
+berbasis metadata DocType, Docker Desktop sebagai lingkungan kontainerisasi terisolasi berbasis 
+WSL2, Antigravity IDE sebagai asisten AI Agent otonom  dengan otorisasi Strict Approval 
+Prompting, serta NotebookLM sebagai Sistem Manajemen Pengetahuan (Knowledge 
+Management System). Buku ini menyajikan panduan komprehensif yang dirancang khusus untuk 
+memenuhi kebutuhan praktikum perguruan tinggi dan standar operasional industri nyata. 
+Penulis menyampaikan ucapan terima kasih dan penghargaan yang tulus kepada Dosen 
+Pembimbing Bapak Dr. Totok Dewayanto, S.E., M.Si., Akt. serta rekan -rekan mahasiswa 
+Departemen Akuntansi Fakultas Ekonomika dan Bisnis Universitas Diponegoro atas dukungan 
+dan diskusi kritis selama penyusunan materi ini. 
+ 
+         Semarang, 4 Oktober 2026 
+ 
+ 
+ 
+Penulis 
+  
+ 
+ 
+
+--- [PAGE 3] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 3 
+DAFTAR ISI 
+ 
+KATA PENGANTAR .................................................................................................................... 2 
+BAB I PENGENALAN ERPNEXT, FRAPPE FRAMEWORK, DOCKER, ANTIGRAVITY, 
+DAN NOTEBOOKLM ................................................................................................................... 5 
+1.1 Arsitektur Sistem ERPNext dan Frappe Framework ............................................................ 5 
+1.2 Peran Docker Desktop dalam Lingkungan Pengembangan Container ................................. 5 
+1.3 Pengenalan AI Agent Assistant Antigravity IDE .................................................................. 6 
+1.4 Pengenalan NotebookLM sebagai Sistem Manajemen Pengetahuan ................................... 6 
+BAB II PANDUAN INSTALASI DAN LANGKAH PEMAKAIAN DOCKER, ANTIGRAVITY, 
+DAN ERPNEXT ............................................................................................................................. 7 
+2.1 Penyiapan Lingkungan Virtualisasi Docker Desktop & Antigravity IDE ............................ 7 
+2.2 Verifikasi Status Docker Engine dan Stack ERPNext via AI Agent .................................... 7 
+2.3 Mekanisme Strict Approval Prompting pada Antigravity IDE ............................................. 8 
+2.4 Akses Layanan Frontend dan Konfigurasi Setup Wizard ERPNext ..................................... 8 
+2.5 Generasi Master Dataset Manufaktur (ERP_Rahma Dhita) via Prompting .......................... 8 
+2.6 Konversi Dokumentasi Spesifikasi Teknis (.md ke .docx via Pandoc) ................................ 9 
+2.7 Eksekusi Bertahap Master Data dengan Kontrol Izin Otoritas ............................................. 9 
+2.8 Validasi Integritas Master Data pada Antarmuka ERPNext ................................................. 9 
+2.9 Pembuatan & Visualisasi Flowchart Persediaan Multi-Warehouse ...................................... 9 
+2.10 Integrasi Knowledge Management System via NotebookLM .......................................... 10 
+2.11 Penyusunan & Injeksi Bagan Akun Manufaktur (COA Excel) ........................................ 11 
+2.12 Perumusan Studi Kasus & Eksekusi Skema Praktikum Transaksional ............................ 11 
+BAB III EKSPLORASI FITUR DAN MODUL-MODUL UTAMA ERPNEXT VERSION 16 13 
+3.1 Modul Akuntansi dan Keuangan (Accounting & Finance) ................................................. 13 
+3.2 Modul Persediaan dan Rantai Pasok (Stock & Supply Chain) ........................................... 13 
+
+--- [PAGE 4] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 4 
+3.3 Modul Manufaktur (Manufacturing & Production MRP) ................................................... 13 
+3.4 Modul Penjualan dan Pembelian (Sales & Procurement) ................................................... 14 
+3.5 Kustomisasi Sistem dan Pembaruan ERPNext Version 16 ................................................. 14 
+BAB IV KASUS PRAKTIKUM INDUSTRI MANUFAKTUR PT RAHMA DHITA 
+MANUFAKTUR (RDM).............................................................................................................. 15 
+4.1 Profil Perusahaan PT Rahma Dhita Manufaktur dan Master Data Praktikum .................... 15 
+4.2 Kasus 1: Siklus Pengadaan Bahan Baku (Procurement Cycle) ........................................... 16 
+4.3 Kasus 2: Penyusunan Formula Produksi (Bill of Materials / BOM) .................................. 17 
+4.4 Kasus 3: Eksekusi Produksi (Work Order & Stock Entry) ................................................. 17 
+4.5 Kasus 4: Siklus Penjualan dan Penagihan (Sales Cycle) .................................................... 18 
+4.6 Kasus 5: Analisis Laporan Keuangan dan Evaluasi Akhir ................................................. 18 
+BAB V PANDUAN STRUKTUR KODE AKUN (CHART OF ACCOUNTS)  DAN MATRIKS 
+JURNAL ....................................................................................................................................... 20 
+5.1 Master Tabel Kode Akun Manufaktur Indonesia (Excerpt COA 114 Akun) ..................... 20 
+5.2 Matriks Alur Jurnal Otomatis ERPNext.............................................................................. 21 
+BAB VI  STANDAR OPERASIONAL PROSEDUR (SOP) DAN CHECKLIST EVALUASI 
+MANDIRI ..................................................................................................................................... 22 
+6.1 SOP 9 Langkah Praktikum Manufaktur ERPNext .............................................................. 22 
+6.2 Tabel Checklist Evaluasi Mandiri Praktikan ....................................................................... 23 
+ 
+ 
+ 
+ 
+
+--- [PAGE 5] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 5 
+BAB I  
+PENGENALAN ERPNEXT, FRAPPE FRAMEWORK, DOCKER, 
+ANTIGRAVITY, DAN NOTEBOOKLM 
+1.1 Arsitektur Sistem ERPNext dan Frappe Framework 
+Sistem Enterprise Resource Planning (ERP) modern menuntut tingkat fleksibilitas 
+tinggi, arsitektur data modular, serta kemampuan integrasi yang luas antar -departemen 
+operasional perusahaan. ERPNext hadir sebagai salah satu solusi ERP open -source paling 
+populer di dunia yang dirancang untuk mengelola seluruh spektrum bisnis, mencakup 
+akuntansi keuangan, manajemen persediaan, manufaktur, pengadaan, penjualan, hingga 
+manajemen sumber daya manusia. ERPNext dibangun sepenuhnya di atas Frappe Framework, 
+sebuah fu ll-stack web application framework berbasis Python di sisi backend dan 
+JavaScript/TypeScript di sisi frontend. 
+Pemisahan yang tegas antara Frappe Framework sebagai fondasi infrastruktur dan 
+ERPNext sebagai aplikasi bisnis memberikan keunggulan arsitektural yang sangat signifikan. 
+Frappe menyediakan komponen dasar yang dibutuhkan oleh aplikasi web kelas enterprise, 
+meliputi ORM (Object-Relational Mapping), abstraksi basis data relasional MariaDB, sistem 
+autentikasi dan otorisasi berbasis peran (Role -Based Access Control / RBAC), pemrosesan 
+antrean pekerjaan latar belakang berbasis Redis dan RQ, serta antarmuka penggu na berbasis 
+metadata yang dinamakan DocType. Dengan fondasi ini, ERPNext memfokuskan fungsinya 
+pada pengolahan logika bisnis dan aturan akuntansi tanpa perlu membangun kembali 
+infrastruktur dasar aplikasi web. 
+1.2 Peran Docker Desktop dalam Lingkungan Pengembangan Container 
+Mengonfigurasi tumpukan perangkat lunak enterprise pada mesin lokal sering kali 
+menghadapi kendala akibat perbedaan versi pustaka, konflik dependensi, serta konfigurasi 
+sistem operasi yang tidak seragam. Teknologi kontainerisasi menggunakan Docker 
+menyelesaikan tantangan tersebut dengan mengemas seluruh tumpukan aplikasi beserta 
+seluruh dependensinya ke dalam unit-unit kontainer yang terisolasi dan konsisten. 
+Pada sistem operasi Windows, Docker Desktop beroperasi di atas Windows 
+Subsystem for Linux 2 (WSL2) yang menjalankan kernel Linux asli secara efisien di atas 
+
+--- [PAGE 6] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 6 
+hypervisor ringan. Melalui file arsitektur multi -container docker-compose.yml, komponen-
+komponen pendukung ERPNext dipetakan secara teratur: kontainer frontend (Socket.io & 
+Web Server Nginx pada port 8000:8080), kontainer backend (Gunicorn & Worker), database 
+server MariaDB 11.8, serta Redis Cache dan Redis Queue. Pendekatan ini memastikan 
+lingkungan pengembangan di komputer praktikan identik dengan lingkungan server produksi 
+nyata. 
+1.3 Pengenalan AI Agent Assistant Antigravity IDE 
+Antigravity IDE merupakan lingkungan pengembangan pintar yang dilengkapi dengan 
+asisten AI Agent otonom terintegrasi. AI Agent ini bertindak sebagai asisten teknis yang 
+mampu menerjemahkan instruksi bahasa alami manusia menjadi rangkaian perintah shell 
+Linux atau perintah CLI bench ERPNext secara presisi, lalu mengeksekusinya di dalam 
+terminal terisolasi. 
+Fitur paling krusial pada Antigravity IDE adalah Strict Approval Prompting. Sebelum 
+mengeksekusi perintah CLI atau skrip yang berpotensi memodifikasi konfigurasi database 
+atau struktur file sistem, Antigravity IDE akan menampilkan jendela dialog otorisasi 
+transparan kepada pengguna. Pengguna memiliki kendali penuh untuk menyetujui, menolak, 
+atau memberikan batasan akses, sehingga menjamin prinsip keselamatan sistem Human -in-
+the-Loop tetap terjaga. 
+1.4 Pengenalan NotebookLM sebagai Sistem Manajemen Pengetahuan 
+NotebookLM dimanfaatkan sebagai Sistem Manajemen Pengetahuan (Knowledge 
+Management System / KMS) terpusat berbasis kecerdasan buatan generatif dengan teknik 
+Grounded-Source Synthesis. Seluruh standar operasional, formula akuntansi, skema jurnal, 
+dan data u ji disintesis langsung dari dokumen acuan yang diunggah ke dalam notebook, 
+meliputi repositori GitHub resmi Frappe, video tutorial, modul praktikum, dan spreadsheet 
+kode akun. 
+Dengan mekanisme grounding ini, NotebookLM mampu menghasilkan panduan 
+belajar, analisis laporan keuangan, serta rancangan soal kasus praktikum yang sepenuhnya 
+akurat dan terbebas dari risiko halusinasi informasi. Sinergi antara NotebookLM sebagai pusat 
+pengetahuan dan Antigravity IDE sebagai enjin eksekusi membentuk lingkungan praktikum 
+ERP yang sangat responsif dan adaptif 
+
+--- [PAGE 7] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 7 
+BAB II  
+PANDUAN INSTALASI DAN LANGKAH PEMAKAIAN DOCKER, 
+ANTIGRAVITY, DAN ERPNEXT 
+2.1 Penyiapan Lingkungan Virtualisasi Docker Desktop & Antigravity IDE 
+Tahap awal praktikum dilakukan dengan menyiapkan lingkungan kerja virtualisasi 
+pada laptop/komputer praktikan. Langkah -langkah terstruktur penyiapan lingkungan kerja 
+adalah sebagai berikut: 
+1. Mengunduh dan memasang aplikasi Antigravity IDE dan Docker Desktop pada 
+komputer. 
+2. Setelah proses instalasi selesai, melakukan autentikasi login menggunakan akun email 
+resmi pada masing-masing aplikasi. 
+3. Membuka aplikasi Antigravity IDE. 
+4. Membuat project baru melalui menu File → Create Project → Add Folder dan 
+mengarahkan ke folder kerja resmi: D:\Semester 7\ERP\ERP_Rahma Dhita. 
+5. Memastikan Docker Desktop dalam keadaan aktif (Engine Running) sebelum proses 
+ERPNext dilanjutkan. Docker Desktop harus tetap aktif sepanjang seluruh sesi praktikum 
+berlangsung. 
+2.2 Verifikasi Status Docker Engine dan Stack ERPNext via AI Agent 
+Setelah Docker aktif dan folder project dibuka di Antigravity IDE, praktikan 
+melakukan pemeriksaan keberadaan stack ERPNext pada sistem menggunakan perantara AI 
+Agent Antigravity. Praktikan memberikan instruksi khusus berikut: 
+"Apakah ERPNext sudah terinstal di laptop ini?" 
+Antigravity akan mengeksekusi perintah kontainer (docker ps) untuk memeriksa status 
+layanan. Jika kontainer belum aktif, Antigravity akan meminta konfirmasi otorisasi untuk 
+mengaktifkan stack frappe-docker. Praktikan mengklik tombol Submit dan menunggu hingga 
+Antigravity memberikan tautan akses frontend resmi: http://localhost:8000. 
+
+--- [PAGE 8] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 8 
+2.3 Mekanisme Strict Approval Prompting pada Antigravity IDE 
+Agar pelaksanaan eksekusi dataset berjalan teratur dan terkontrol, Antigravity 
+diarahkan untuk bekerja secara bertahap dan wajib meminta izin praktikan sebelum 
+mengeksekusi setiap langkah. Prompt otorisasi bertahap yang digunakan adalah: 
+"Jalankan sesuai panduan yang anda buat secara urut dan bertahap, serta anda harus 
+meminta ijin ke saya bila mau menjalankan tahap demi tahap selanjutnya." 
+Setelah Antigravity menyelesaikan suatu tahap dan menampilkan ringkasan hasilnya 
+di terminal, praktikan melakukan verifikasi. Setelah hasil dinyatakan sesuai, praktikan 
+memberikan perintah persetujuan kelanjutan: 
+"Silahkan jalankan tahap..." 
+Alur Kontrol Human -in-the-Loop: Antigravity menjalankan tahap → Praktikan 
+memeriksa hasil → Praktikan memberikan izin → Antigravity menjalankan tahap berikutnya. 
+2.4 Akses Layanan Frontend dan Konfigurasi Setup Wizard ERPNext 
+Setelah link localhost aktif, praktikan mengakses antarmuka ERPNext melalui web 
+browser di alamat http://localhost:8000. 
+1. Buka peramban dan akses http://localhost:8000. 
+2. Login menggunakan kredensial default: Username Administrator / 
+rahmadhitaauliya@gmail.com dan password sistem. 
+3. Selesaikan langkah Setup Wizard dengan mendaftarkan nama organisasi resmi: PT 
+Rahma Dhita Manufaktur, menetapkan mata uang IDR (Rupiah), serta memilih domain 
+Manufaktur. 
+2.5 Generasi Master Dataset Manufaktur (ERP_Rahma Dhita) via Prompting 
+Pembuatan dataset master manufaktur dilakukan secara terautomasi menggunakan AI 
+Agent Antigravity melalui instruksi prompt khusus: 
+
+--- [PAGE 9] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 9 
+"Buat dataset untuk bisa digunakan dalam praktik ERPNext, dataset dibuat secara 
+sederhana. Skema praktik untuk tipe industri manufaktur. Dataset ditaruh di folder 
+khusus dengan nama ERP_Rahma Dhita." 
+Antigravity memproses instruksi tersebut dan menghasilkan 13 file CSV dataset 
+terstruktur (mencakup Item Group, Warehouse, Supplier, Customer, Item, Workstation, 
+Operation, BOM, dan skenario transaksi) yang tersimpan rapi di dalam  folder ERP_Rahma 
+Dhita. 
+2.6 Konversi Dokumentasi Spesifikasi Teknis (.md ke .docx via Pandoc) 
+Dokumentasi spesifikasi teknis dataset yang dihasilkan Antigravity dalam format 
+Markdown (.md) selanjutnya dikonversi menjadi dokumen Microsoft Word (.docx) agar 
+mudah dipelajari: 
+"Konversi file .md yang anda buat ke dalam file docx." 
+2.7 Eksekusi Bertahap Master Data dengan Kontrol Izin Otoritas 
+Eksekusi pendaftaran master data (pemasok, pelanggan, gudang, dan item produk) 
+dijalankan oleh Antigravity satu per satu sesuai panduan. Antigravity akan berhenti di setiap 
+akhir tahapan dan menunggu kalimat perintah persetujuan dari praktikan ('Silahkan jalankan 
+tahap...') sebelum melanjutkan ke pendaftaran berikutnya. 
+2.8 Validasi Integritas Master Data pada Antarmuka ERPNext 
+Setiap kali Antigravity menyelesaikan suatu tahap pendaftaran, praktikan melakukan 
+verifikasi visual secara langsung pada antarmuka web ERPNext (misalnya membuka menu 
+Stock → Item atau Buying → Supplier) untuk memastikan seluruh rekaman data benar-benar 
+telah tersimpan dengan aman pada database MariaDB. 
+2.9 Pembuatan & Visualisasi Flowchart Persediaan Multi-Warehouse 
+Praktikan meminta Antigravity menyusun diagram alur persediaan multi -warehouse 
+menggunakan prompt: 
+
+--- [PAGE 10] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 10 
+"Buat flowchart untuk sistem persediaan di ERPNext ini, buat file dalam bentuk docx, 
+hasil ditaruh di folder ERP_Rahma Dhita." 
+Untuk penyempurnaan alur percabangan QC dan perakitan, praktikan menggunakan 
+NotebookLM dengan prompt sintaks Mermaid: 'Berdasarkan sumber ini, buatkan outline alur 
+sistem persediaan secara detail lengkap dengan kondisi percabangan (misal: jika barang reject 
+vs lolos QC), stasiun kerja, dan dokumen yang terlibat dalam format sintaks Mermaid 
+flowchart.' Hasil sintaks Mermaid kemudian dimasukkan kembali ke  Antigravity untuk 
+dikompilasi menjadi dokumen visual. 
+ 
+2.10 Integrasi Knowledge Management System via NotebookLM 
+Praktikan memanfaatkan NotebookLM sebagai Sistem Manajemen Pengetahuan 
+terintegrasi dengan langkah: 
+
+
+--- [PAGE 11] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 11 
+1. Membuka NotebookLM di peramban web dan membuat notebook baru 'Praktikum ERP 
+Manufaktur'. 
+2. Mengunggah dokumentasi repositori GitHub resmi Frappe/ERPNext dan modul 
+praktikum. 
+3. Memberikan prompt: 'Buat panduan belajar ERPNext dari awal dan dasar.' 
+4. Meminta perumusan Bagan Akun Manufaktur via prompt: 
+"Buat kode untuk tipe industri manufaktur guna diterapkan pada ERPNext dan buat 
+dalam file excel." 
+2.11 Penyusunan & Injeksi Bagan Akun Manufaktur (COA Excel) 
+File Excel Bagan Akun hasil olahan NotebookLM 
+(Kode_Akun_ERPNext_Manufaktur.xlsx) dipindahkan ke folder project D: \Semester 
+7\ERP\ERP_Rahma Dhita. Praktikan kemudian memberikan instruksi injeksi otomatis kepada 
+Antigravity: 
+"Silahkan pasang kode akun yang ada dalam file 
+Kode_Akun_ERPNext_Manufaktur.xlsx yang ada pada folder D:\Semester 
+7\ERP\ERP_Rahma Dhita." 
+Antigravity menginjeksi 114 kode akun secara terstruktur ke dalam database 
+ERPNext. Praktikan memverifikasi hasilnya pada menu Accounting → Chart of Accounts. 
+2.12 Perumusan Studi Kasus & Eksekusi Skema Praktikum Transaksional 
+Tahap akhir penyiapan praktikum adalah merumuskan dan mengeksekusi skenario 
+kasus transaksi: 
+1. NotebookLM merumuskan soal kasus berbasis COA via prompt: 'Buatkan contoh soal 
+untuk diterapkan pada ERPNext jenis industri manufaktur berdasarkan kode akun yang 
+telah anda hasilkan.' (Disimpan sebagai Soal_ERPNext_Manufaktur.docx). 
+2. Antigravity diperintahkan mengeksekusi soal via prompt: 
+
+--- [PAGE 12] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 12 
+"Kerjakan soal pada file Soal_ERPNext_Manufaktur.docx yang ada pada folder 
+D:\Semester 7\ERP\ERP_Rahma Dhita." 
+3. Antigravity menyusun dokumentasi skema tutorial pelaksanaan via prompt: 'Buat skema 
+pelaksanaan pengerjaan soal diatas sehingga saya bisa mengetahui tutorial dari pengerjaan 
+ERP menggunakan soal yang saya berikan. Hasil penjelasan ini ditaruh pada folder khusus.' 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- [PAGE 13] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 13 
+BAB III  
+EKSPLORASI FITUR DAN MODUL-MODUL UTAMA ERPNEXT 
+VERSION 16 
+3.1 Modul Akuntansi dan Keuangan (Accounting & Finance) 
+Modul Akuntansi merupakan pusat konsolidasi finansial ERPNext yang beroperasi 
+berbasis sistem pembukuan berpasangan (double -entry bookkeeping) otomatis. Setiap 
+transaksi operasional persediaan, manufaktur, pengadaan, maupun penjualan secara langsung 
+memicu pembentukan entri buku besar (General Ledger Entry) secara real -time tanpa 
+memerlukan penginputan jurnal manual. 
+Modul ini mencakup pengelolaan Chart of Accounts berstruktur pohon, manajemen 
+Piutang Usaha (Accounts Receivable), Hutang Usaha (Accounts Payable), rekonsiliasi kas 
+dan bank, penetapan template perpajakan otomatis (seperti PPN 11%), serta penyusunan 
+laporan keuangan standar seperti Trial Balance, Balance Sheet, Profit and Loss, dan Cash 
+Flow Statement. 
+3.2 Modul Persediaan dan Rantai Pasok (Stock & Supply Chain) 
+Modul Persediaan mengelola pergerakan fisik barang antar -gudang berbasis metode 
+pencatatan perpetual. Master Item menyimpan informasi komprehensif mengenai kode 
+barang, kelompok barang, satuan pengukuran (UOM), metode penilaian stok (FIFO atau 
+Moving Average), serta batas pemesanan ulang otomatis (Reorder Level). 
+Fitur utama modul persediaan mencakup pengelolaan hierarki gudang multi -level, 
+pelacakan nomor seri (Serial Number) dan nomor kelompok (Batch Number), pemindahan 
+stok antar -gudang (Stock Entry), rekonsiliasi stok fisik (Stock Reconciliation), serta 
+pengalokasian biaya angkut dan bea masuk menggunakan Landed Cost Voucher. 
+3.3 Modul Manufaktur (Manufacturing & Production MRP) 
+Modul Manufaktur dirancang khusus untuk mengoptimalkan seluruh siklus fabrikasi 
+dan perakitan barang. Komponen intinya adalah Bill of Materials (BOM) yang memuat resep 
+standar kebutuhan bahan baku, bahan penolong, serta alokasi biaya operasi stasiun kerja dan 
+tenaga kerja langsung. 
+
+--- [PAGE 14] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 14 
+Alur produksi dikendalikan melalui Work Order yang mengatur jadwal dan jumlah 
+produksi, dilanjutkan dengan penerbitan Job Cards untuk memantau pekerjaan di setiap 
+stasiun kerja. Pada ERPNext Version 16, alur Material Requirements Planning (MRP) 
+diperbarui secara independen untuk mengintegrasikan ramalan penjualan (forecast), jadwal 
+pengiriman, dan lead time pengadaan bahan secara presisi. 
+3.4 Modul Penjualan dan Pembelian (Sales & Procurement) 
+Modul Pembelian (Procurement) mengelola alur pengadaan barang dari penerbitan 
+Material Request, penawaran harga (Supplier Quotation), Purchase Order (PO), penerimaan 
+barang fisik (Purchase Receipt), hingga penerbitan Purchase Invoice. Modul Penjualan 
+(Selling) mengelola siklus komersial dari Quotation, Sales Order (SO), pengiriman barang 
+(Delivery Note), hingga faktur penjualan (Sales Invoice). 
+Selain itu, modul Human Resource Management System (HRMS) dan Payroll 
+mengelola data induk karyawan, struktur gaji, klaim biaya multi -mata uang, pengajuan cuti, 
+hingga kalkulasi penggajian bulanan secara terintegrasi. 
+3.5 Kustomisasi Sistem dan Pembaruan ERPNext Version 16 
+Arsitektur DocType pada Frappe Framework memungkinkan kustomisasi sistem 
+secara fleksibel melalui penambahan Custom Field, perancangan formulir visual, penyusunan 
+Client Script (JavaScript di browser), dan Server Script (Python di server) tanpa merusak kode 
+inti aplikasi. 
+Pembaruan ERPNext Version 16 membawa peningkatan performa kueri basis data 
+hingga 2x lebih cepat menggunakan konektor pustaka C, fitur Financial Report Templates 
+untuk penyusunan laporan keuangan kustom berbasis rumus, antarmuka Workspace responsif, 
+serta penelusuran silsilah produk melalui Serial & Batch Traceability Report. 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- [PAGE 15] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 15 
+BAB IV  
+KASUS PRAKTIKUM INDUSTRI MANUFAKTUR PT RAHMA DHITA 
+MANUFAKTUR (RDM) 
+4.1 Profil Perusahaan PT Rahma Dhita Manufaktur dan Master Data Praktikum 
+Praktikum ERPNext menggunakan studi kasus PT Rahma Dhita Manufaktur (RDM), 
+sebuah entitas manufaktur discrete yang bergerak di bidang perakitan perabot kantor kayu 
+minimalis (Meja Kerja Kayu Minimalis & Kursi Kerja Kayu Ergonomis). Pada pelaksanaan 
+praktikum, praktikan berperan sebagai Manajer Operasional sekaligus Akuntan Perusahaan 
+yang bertanggung jawab menginput dan mengelola transaksi bisnis ke dalam ERPNext. 
+Kode Item Nama Item Kelompok Satuan Harga 
+Standar 
+RAW-WOOD-
+01 
+Papan Kayu Pinus 200x20x2 
+cm 
+Bahan Baku Nos Rp 45.000 
+RAW-WOOD-
+02 
+Balok Kayu Mahoni 5x5x80 
+cm 
+Bahan Baku Nos Rp 25.000 
+RAW-CHEM-
+01 
+Cat Finishing Wood Stain 
+Natural 
+Bahan Baku Litre Rp 75.000 
+RAW-HARD-
+01 
+Baut dan Sekrup Baja 2 Inch Bahan Baku Nos Rp 500 
+RAW-CHEM-
+02 
+Lem Kayu Polyurethane D3 Bahan Baku Kg Rp 35.000 
+RAW-CONS-
+01 
+Kertas Amplas Grid 240 Habis Pakai Nos Rp 4.000 
+
+--- [PAGE 16] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 16 
+FG-DSK-01 Meja Kerja Kayu Minimalis Barang Jadi Nos Rp 750.000 
+FG-CHR-01 Kursi Kerja Kayu Ergonomis Barang Jadi Nos Rp 450.000 
+4.2 Kasus 1: Siklus Pengadaan Bahan Baku (Procurement Cycle) 
+Perusahaan melakukan pengadaan bahan baku utama dan penolong kepada 4 supplier 
+terpercaya dengan total transaksi sebesar Rp 8.775.000: 
+Nama Supplier Item Bahan Baku Kuantitas Harga 
+Satuan 
+Total 
+Pembelian 
+CV Kayu Lestari Papan Kayu Pinus 
+(RAW-PIN-01) 
+50 Lembar Rp 120.000 Rp 6.000.000 
+CV Kayu Lestari Balok Kayu Mahoni 
+(RAW-MAH-01) 
+30 Batang Rp 65.000 Rp 1.950.000 
+PT Warna Indah 
+Abadi 
+Cat Finishing Walnut 
+(RAW-PNT-01) 
+10 Kaleng Rp 45.000 Rp 450.000 
+Toko Logam & 
+Baut Jaya 
+Baut & Sekrup Industri 
+(RAW-SCR-01) 
+5 Kotak Rp 30.000 Rp 150.000 
+CV Kimia Rekat 
+Mandiri 
+Lem Polyurethane 
+(RAW-GLU-01) 
+10 Botol Rp 15.000 Rp 150.000 
+Toko Logam & 
+Baut Jaya 
+Kertas Amplas Halus 
+(RAW-SND-01) 
+25 Lembar Rp 3.000 Rp 75.000 
+TOTAL 
+PENGADAAN 
+BAHAN BAKU 
+- - - Rp 8.775.000 
+ 
+
+--- [PAGE 17] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 17 
+4.3 Kasus 2: Penyusunan Formula Produksi (Bill of Materials / BOM) 
+Perumusan resep produksi standar per unit untuk produk jadi mencakup alokasi bahan 
+baku direct material, biaya tenaga kerja langsung (Direct Labor / DL), dan biaya overhead 
+pabrik (Factory Overhead / FOH): 
+• Produk 1: BOM Meja Kerja Kayu Minimalis (FG -DSK-01): Bahan Baku Rp 346.917 
+(Papan Pinus 2.5 lbr, Cat 0.5 klg, Baut 0.5 ktk, Lem 0.5 btl, Amplas 1 lbr) + DL Rp 30.000 
++ FOH Rp 20.000 = Total HPP Rp 396.917 / unit. 
+• Produk 2: BOM Kursi Kerja Kayu Ergonomis (FG -CHR-01): Bahan Baku Rp 194.500 
+(Balok Mahoni 2 btg, Cat 0.3 klg, Baut 0.3 ktk, Lem 0.3 btl, Amplas 0.5 lbr) + DL Rp 
+30.000 + FOH Rp 20.000 = Total HPP Rp 244.500 / unit. 
+ 
+Gambar 4.1: Visualisasi Struktur HPP Standar Per Unit Produk PT Rahma Dhita Manufaktur 
+4.4 Kasus 3: Eksekusi Produksi (Work Order & Stock Entry) 
+Manajer Operasional menerbitkan Work Order untuk memproduksi 10 unit Meja 
+Kerja Kayu Minimalis (WO-001) dan 20 unit Kursi Kerja Kayu Ergonomis (WO -002). Saat 
+transaksi Stock Entry Type Manufacture diposting, sistem melakukan pemotongan stok bahan 
+baku di Gudang Stores dan menambah stok produk jadi di Gudang Finished Goods sebesar 
+total HPP Produksi Rp 8.859.170 (10 x Rp 396.917 + 20 x Rp 244.500). 
+
+
+--- [PAGE 18] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 18 
+4.5 Kasus 4: Siklus Penjualan dan Penagihan (Sales Cycle) 
+Penjualan produk jadi kepada 3 pelanggan utama menghasilkan total omset sebesar 
+Rp 10.490.000 . Pengiriman via Delivery Note memicu jurnal HPP: (D) 5111 HPP Rp 
+4.908.000 dan (K) 1134 Persediaan Barang Jadi Rp 4.908.000. 
+Pelanggan Produk Dijual Kuantit
+as 
+Harga Jual 
+/ Unit 
+Total 
+Penjualan 
+PT Megah Properti 
+Cipta 
+Meja Kerja Minimalis 5 Unit Rp 650.000 Rp 3.250.000 
+PT Megah Properti 
+Cipta 
+Kursi Kerja 
+Ergonomis 
+10 Unit Rp 420.000 Rp 4.200.000 
+CV Ruang Impian 
+Desain 
+Meja Kerja Minimalis 3 Unit Rp 650.000 Rp 1.950.000 
+Toko Mebel Nusantara Kursi Kerja 
+Ergonomis 
+2 Unit Rp 420.000 Rp 840.000 
+TOTAL OMSET 
+PENJUALAN 
+- - - Rp 10.490.000 
+4.6 Kasus 5: Analisis Laporan Keuangan dan Evaluasi Akhir 
+Berdasarkan seluruh skenario transaksi yang dieksekusi, kinerja finansial PT Rahma 
+Dhita Manufaktur dicatat secara otomatis oleh General Ledger ERPNext v16 sebagai berikut: 
+• Total Omset Penjualan: Rp 10.490.000 
+• Total Beban Pokok Penjualan (HPP): Rp 4.908.170 (terdiri dari 8 unit Meja Kerja @ 
+Rp 396.917 dan 12 unit Kursi Kerja @ Rp 244.500) 
+• Laba Kotor (Gross Profit): Rp 5.581.830 dengan Margin Laba Kotor sebesar 53.21%. 
+• Total Neraca (Balance Sheet): Rp 448.099.170 (Sisi Aktiva Kas/Bank & Persediaan 
+seimbang dengan Pasiva Modal & Laba Ditahan). 
+ 
+
+--- [PAGE 19] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 19 
+ 
+Gambar 4.2: Grafik Evaluasi Kinerja Finansial Skenario Transaksi PT Rahma Dhita 
+Manufaktur 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- [PAGE 20] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 20 
+BAB V  
+PANDUAN STRUKTUR KODE AKUN (CHART OF ACCOUNTS)  DAN 
+MATRIKS JURNAL 
+5.1 Master Tabel Kode Akun Manufaktur Indonesia (Excerpt COA 114 Akun) 
+Berikut adalah struktur pustaka kode akun (Chart of Accounts) standar manufaktur 
+Indonesia level 4 & 5 yang diinjeksi ke dalam ERPNext: 
+Kode 
+Akun 
+Nama Akun (Account Name) Tipe Akun 
+(Account Type) 
+Laporan 
+Keuangan 
+1000 ASET Root Asset 
+1100 Aset Lancar Group Asset 
+1111 Kas Kecil Pabrik Ledger (Cash) Asset 
+1114 Bank Mandiri - Operasional 
+Gaji & Vendor 
+Ledger (Bank) Asset 
+1121 Piutang Dagang Lokal Ledger 
+(Receivable) 
+Asset 
+1131 Persediaan Bahan Baku Utama Ledger (Stock) Asset 
+1133 Persediaan Barang Dalam 
+Proses (WIP) 
+Ledger (Stock) Asset 
+1134 Persediaan Barang Jadi 
+(Finished Goods) 
+Ledger (Stock) Asset 
+1136 Stock Received But Not Billed Ledger (Stock 
+Clearing) 
+Asset 
+2000 KEWAJIBAN Root Liability 
+
+--- [PAGE 21] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 21 
+Kode 
+Akun 
+Nama Akun (Account Name) Tipe Akun 
+(Account Type) 
+Laporan 
+Keuangan 
+2111 Utang Dagang Pemasok Bahan 
+Baku 
+Ledger (Payable) Liability 
+5.2 Matriks Alur Jurnal Otomatis ERPNext 
+Setiap dokumen transaksi bisnis membentuk alur jurnal pembukuan berpasangan 
+secara otomatis di sistem: 
+Dokumen 
+Transaksi 
+Akun Debet (D) Akun Kredit (K) Dampak Akuntansi 
+Finansial 
+Purchase Receipt 1131 Persd. Bahan 
+Baku 
+1136 Stock Rec. Not 
+Billed 
+Pengakuan aset fisik & 
+utang akrual 
+persediaan 
+Purchase Invoice 1136 Stock Rec. Not 
+Billed 
+2111 Utang Dagang 
+Pemasok 
+Penutupan kliring & 
+pengakuan utang 
+definitif 
+Stock Entry 
+(Transfer) 
+1133 Persd. WIP 1131 Persd. Bahan 
+Baku 
+Perpindahan nilai 
+bahan ke lantai 
+perakitan 
+Stock Entry 
+(Manufacture) 
+1134 Persd. Barang 
+Jadi 
+1133 WIP & 2121 
+Absorbed 
+Pengakuan HPP 
+barang jadi & serapan 
+biaya konversi 
+Delivery Note 5111 Beban Pokok 
+Penjualan 
+1134 Persd. Barang 
+Jadi 
+Pengakuan beban HPP 
+saat barang keluar ke 
+pembeli 
+ 
+ 
+ 
+
+--- [PAGE 22] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 22 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+BAB VI: STANDAR OPERASIONAL PROSEDUR (SOP) DAN 
+CHECKLIST EVALUASI MANDIRI 
+ 
+6.1 SOP 9 Langkah Praktikum Manufaktur ERPNext 
+Setiap praktikan wajib menjalankan 9 tahap operasional secara berurutan: 
+1. Verifikasi keaktifan Docker Engine & kontainer frappe-docker. 
+2. Penyelesaian Setup Wizard organisasi PT Rahma Dhita Manufaktur di localhost:8000. 
+3. Generasi dataset master ERP_Rahma Dhita (13 file CSV). 
+4. Eksekusi pendaftaran master data produk, gudang, dan mitra bisnis. 
+5. Impor dan pemetaan Bagan Akun Manufaktur (COA 114 akun). 
+6. Eksekusi transaksi pengadaan bahan baku (PO, Purchase Receipt, Invoice). 
+7. Merumuskan formula BOM Meja Kerja & Kursi Kerja. 
+8. Mengoperasikan Work Order & Stock Entries perakitan barang jadi. 
+
+--- [PAGE 23] ---
+ 
+Departemen Akuntansi FEB Universitas Diponegoro  |  Halaman 23 
+9. Eksekusi siklus penjualan (Sales Order, Delivery Note, Invoice) & audit Laporan 
+Keuangan. 
+6.2 Tabel Checklist Evaluasi Mandiri Praktikan 
+Gunakan lembar kontrol berikut untuk memverifikasi pencapaian praktikum sebelum 
+pengumpulan laporan: 
+No Langkah Kegiatan 
+Praktikum 
+Indikator Keberhasilan 
+Capaian 
+Status Checklist 
+1 Pemeriksaan Docker Engine Stack frappe-docker aktif port 
+8000 
+[✔] Terverifikasi 
+2 Akses Setup Wizard 
+ERPNext 
+Organisasi 'PT Rahma Dhita' 
+terdaftar 
+[✔] Terverifikasi 
+3 Generasi Dataset 
+ERP_Rahma Dhita 
+13 file CSV master & skenario 
+terbentuk 
+[✔] Terverifikasi 
+4 Pendaftaran Master Data Item Meja, Kursi, Kayu & 
+Gudang aktif 
+[✔] Terverifikasi 
+5 Injeksi COA Manufaktur 114 akun manufaktur 
+terintegrasi sistem 
+[✔] Terverifikasi 
+6 Pengadaan Bahan Baku 
+(Kasus 1) 
+PO-00011 s/d 00014 & PR 
+disubmit 
+[✔] Terverifikasi 
+7 Penyusunan BOM (Kasus 2) BOM Meja & BOM Kursi aktif 
+terdaftar 
+[✔] Terverifikasi 
+8 Eksekusi Produksi (Kasus 3) WO-00001 (10 Meja) & WO-
+00002 (20 Kursi) 
+[✔] Terverifikasi 
+9 Penjualan & Audit 
+Keuangan 
+Omset Rp 10.49 jt & Laba 
+Kotor 53% 
+[✔] Terverifikasi 
+ 
